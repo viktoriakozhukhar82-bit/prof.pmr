@@ -6,92 +6,107 @@
 <title>PROF-ПМР — профориентационный навигатор</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;700&family=Unbounded:wght@500;700&display=swap">
 <style>
-:root{--bg:#f0f6f2;--card:#fff;--ink:#12231b;--mute:#587063;--line:#d3e2d9;--g:#0f6b46;--gd:#0a3a29;--gs:#dcf0e5;--r:#d4372c;--y:#f2b632}
+:root{--bg:#f4f8f5;--card:#fff;--ink:#0f1f17;--mute:#5a7266;--line:#dbe8e0;--g:#0f6b46;--g2:#17a36a;--gd:#0a3a29;--gs:#e3f4ea;--r:#d4372c;--y:#f2b632;--sh:0 1px 2px rgba(10,58,41,.05),0 12px 32px -14px rgba(10,58,41,.22)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Golos Text",system-ui,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;color:var(--ink);font:400 17px/1.65 "Golos Text",system-ui,sans-serif;background:radial-gradient(900px 520px at 88% -8%,rgba(23,163,106,.16),transparent 60%),radial-gradient(700px 420px at -8% 12%,rgba(242,182,50,.14),transparent 60%),var(--bg);-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:Unbounded,"Golos Text",system-ui,sans-serif;line-height:1.15;margin:0}
 .w{max-width:1080px;margin:0 auto;padding:0 20px}
-section{padding:64px 0}
-h2{font-size:clamp(25px,4.6vw,36px);margin-bottom:12px}
+section{padding:72px 0}
+h2{font-size:clamp(26px,4.6vw,38px);margin-bottom:14px;letter-spacing:-.5px}
+h2::after{content:"";display:block;width:52px;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--g2),var(--y));margin-top:14px}
 h3{font-size:17px}
-.sub{color:var(--mute);max-width:62ch;margin:0 0 26px}
-header{position:sticky;top:0;z-index:20;background:rgba(240,246,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-header .w{display:flex;align-items:center;gap:20px;height:60px}
-.logo{font:700 18px Unbounded,sans-serif;margin-right:auto;color:var(--gd)}.logo b{color:var(--r)}
-header a{color:var(--mute);text-decoration:none;font-size:15px}header a:hover{color:var(--g)}
-.hero{padding:56px 0 30px}
-.hero .w{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-h1{font-size:clamp(36px,7vw,66px);letter-spacing:-1.5px}
-.hero p{font-size:19px;color:var(--mute);max-width:54ch;margin:20px 0 28px}
-.btn{display:inline-block;border:0;border-radius:12px;padding:14px 24px;font:700 16px "Golos Text",sans-serif;cursor:pointer;text-decoration:none;background:var(--g);color:#fff;margin:0 10px 10px 0}
-.btn.o{background:none;color:var(--ink);border:2px solid var(--line)}
-.btn:disabled{opacity:.5;cursor:default}
+.sub{color:var(--mute);max-width:62ch;margin:0 0 30px}
+header{position:sticky;top:0;z-index:20;background:rgba(244,248,245,.82);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(15,107,70,.1);padding-top:env(safe-area-inset-top,0px)}
+header .w{display:flex;align-items:center;gap:22px;height:64px}
+.logo{font:700 18px Unbounded,sans-serif;margin-right:auto;color:var(--gd);display:flex;align-items:center}
+.logo::before{content:"";width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--y),var(--r));margin-right:9px}
+.logo b{color:var(--r)}
+header a{color:var(--mute);text-decoration:none;font-size:15px;font-weight:500;padding:8px 12px;border-radius:10px;transition:.2s}
+header a:hover{color:var(--g);background:var(--gs)}
+.hero{position:relative;overflow:hidden;padding:84px 0 56px}
+.hero .w{position:relative;z-index:1}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;pointer-events:none}
+.b1{width:340px;height:340px;background:#17a36a;top:-120px;right:-80px;opacity:.28}
+.b2{width:260px;height:260px;background:var(--y);bottom:-100px;left:-60px;opacity:.3}
+.pill{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--g);font-weight:700;font-size:13px;padding:7px 14px;border-radius:30px;box-shadow:var(--sh);margin-bottom:22px}
+h1{font-size:clamp(38px,7.4vw,72px);letter-spacing:-2px;max-width:13ch}
+h1 .gr{background:linear-gradient(120deg,var(--g),var(--g2) 55%,var(--y));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:var(--mute);max-width:56ch;margin:22px 0 30px}
+.btn{display:inline-block;border:0;border-radius:14px;padding:15px 26px;font:700 16px "Golos Text",sans-serif;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;margin:0 10px 10px 0;box-shadow:0 10px 22px -10px rgba(15,107,70,.7);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 26px -10px rgba(15,107,70,.75)}
+.btn.o{background:#fff;color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.btn.o:hover{border-color:var(--g)}
+.btn:disabled{opacity:.5;cursor:default;transform:none}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.stats div{background:rgba(255,255,255,.8);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:14px 20px;box-shadow:var(--sh)}
+.stats b{display:block;font:700 26px Unbounded,sans-serif;color:var(--g);line-height:1.1}
+.stats span{font-size:14px;color:var(--mute)}
 :is(.btn,.chip,.ans,a,select,input,summary):focus-visible{outline:3px solid var(--y);outline-offset:2px}
-.compass{width:100%;max-width:340px;justify-self:center}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
-.grid .card p{margin:6px 0 0;color:var(--mute);font-size:15px}
-.ico{font-size:28px;margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--sh)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.grid>.card,.grid>details.card{transition:transform .25s,box-shadow .25s,border-color .25s}
+.grid>.card:hover,.grid>details.card:hover{transform:translateY(-4px);border-color:rgba(23,163,106,.45);box-shadow:0 18px 40px -16px rgba(10,58,41,.3)}
+.grid .card p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.ico{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(135deg,var(--gs),#fff);border:1px solid var(--line);font-size:26px;margin-bottom:14px}
 .form{max-width:640px}
 .fg{margin-bottom:16px}.fg label{display:block;font-weight:700;margin-bottom:6px}
-.fg input,.fg select{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+.fg input,.fg select{width:100%;padding:14px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.fg input:focus,.fg select:focus{outline:0;border-color:var(--g2);box-shadow:0 0 0 4px rgba(23,163,106,.15)}
 .mini{font-size:14px;color:var(--mute)}
-.quiz{background:var(--gd);color:#fff;border-radius:22px;padding:28px;margin-top:22px;max-width:760px}
-.quiz h3{font-size:21px;margin:6px 0 18px}
-.prog{height:6px;background:rgba(255,255,255,.2);border-radius:3px;margin-bottom:22px}.prog i{display:block;height:100%;width:0;background:var(--y);border-radius:3px;transition:width .3s}
-.ans{display:block;width:100%;text-align:left;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:14px 16px;margin:9px 0;font:inherit;cursor:pointer}
-.ans:hover{border-color:var(--y);background:rgba(255,255,255,.14)}
+.quiz{background:linear-gradient(150deg,#0a3a29,#0f6b46 120%);color:#fff;border-radius:26px;padding:32px;margin-top:22px;max-width:760px;box-shadow:0 30px 60px -28px rgba(10,58,41,.7)}
+.quiz h3{font-size:22px;margin:8px 0 18px}
+.prog{height:7px;background:rgba(255,255,255,.18);border-radius:4px;margin-bottom:24px}.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--y),#ffd877);border-radius:4px;transition:width .35s}
+.ans{display:block;width:100%;text-align:left;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:15px 18px;margin:10px 0;font:inherit;cursor:pointer;transition:transform .15s,background .2s,border-color .2s}
+.ans:hover{border-color:var(--y);background:rgba(255,255,255,.16);transform:translateX(4px)}
 .back{background:none;border:0;color:#a9d9c0;cursor:pointer;font:inherit;font-size:14px;padding:8px 0;margin-top:8px}
 .quiz .fg select{color:var(--ink)}
-.res{display:none;background:var(--card);color:var(--ink);border-radius:18px;padding:24px;margin-top:20px}.res.show{display:block}
-.pr{margin:14px 0}.pt{display:flex;justify-content:space-between;font-weight:700;font-size:15px}
-.tr{height:10px;background:var(--gs);border-radius:6px;overflow:hidden;margin-top:5px}.fl{height:100%;background:var(--g);border-radius:6px;transition:width .5s}
-.tag{display:inline-block;background:var(--gs);color:var(--gd);border-radius:20px;padding:5px 12px;margin:3px;font-size:14px;font-weight:500}
+.res{display:none;background:var(--card);color:var(--ink);border-radius:20px;padding:26px;margin-top:20px}.res.show{display:block}
+.pr{margin:16px 0}.pt{display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+.tr{height:11px;background:var(--gs);border-radius:7px;overflow:hidden;margin-top:6px}.fl{height:100%;background:linear-gradient(90deg,var(--g),var(--g2));border-radius:7px;transition:width .6s}
+.tag{display:inline-block;background:var(--gs);color:var(--gd);border:1px solid rgba(15,107,70,.12);border-radius:20px;padding:6px 13px;margin:3px;font-size:14px;font-weight:500}
 .sch{border-top:1px solid var(--line);padding:10px 0;font-size:15px}.sch b{display:block}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
-.chip{background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:20px;padding:7px 15px;font:inherit;font-size:14px;cursor:pointer}
-.chip.on{border-color:var(--g);background:var(--gs)}
-.lab{font-size:13px;color:var(--mute);margin:12px 0 6px}
+.chip{background:#fff;color:var(--ink);border:1.5px solid var(--line);border-radius:22px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--g2)}
+.chip.on{border-color:var(--g);background:var(--g);color:#fff}
+.lab{font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--mute);margin:14px 0 8px}
 details.card{padding:0}
-summary{cursor:pointer;list-style:none;padding:20px 22px}
+summary{cursor:pointer;list-style:none;padding:22px 24px}
 summary::-webkit-details-marker{display:none}
-summary small{display:block;color:var(--mute);margin-top:4px;font-size:14px}
-summary h3{margin-bottom:2px}
-.det{padding:0 22px 22px;font-size:15px}
+summary small{display:block;color:var(--mute);margin-top:6px;font-size:14px}
+summary h3{margin:8px 0 2px}
+.det{padding:0 24px 24px;font-size:15px}
 .det p{margin:8px 0;color:var(--ink)}
 .det a{color:var(--g);font-weight:700}
-.bd{display:inline-block;font-size:12px;border-radius:6px;padding:2px 8px;background:var(--gs);color:var(--gd);margin-right:6px}
-.warn{background:#fff6dd;border-left:4px solid var(--y);padding:12px 16px;border-radius:8px;font-size:14px;margin-top:10px}
-.note{background:var(--gs);border-radius:12px;padding:14px 18px;font-size:15px;margin-top:20px}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
-th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
-.ok{background:#e4f6ea;color:#1c6a36;padding:12px 16px;border-radius:10px;margin-top:14px}
-.big{font:700 40px Unbounded,sans-serif;color:var(--g)}
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:14px;text-align:center}
-@media(max-width:800px){header nav{display:none}.hero .w{grid-template-columns:1fr}.compass{max-width:220px}}
+.bd{display:inline-block;font-size:12px;font-weight:700;border-radius:8px;padding:3px 10px;background:var(--gs);color:var(--gd)}
+.warn{background:#fff6dd;border-left:4px solid var(--y);padding:14px 18px;border-radius:12px;font-size:14px;margin-top:14px}
+.note{background:var(--gs);border-radius:14px;padding:16px 20px;font-size:15px;margin-top:22px}
+.ok{background:#e4f6ea;color:#1c6a36;padding:13px 17px;border-radius:12px;margin-top:14px}
+.big{font:700 42px Unbounded,sans-serif;color:var(--g)}
+footer{background:linear-gradient(160deg,#08281d,#0a3a29);color:#cfe6d9;padding:44px 0 40px;text-align:center;font-size:15px;margin-top:30px}
+footer .l1{font-weight:500;color:#fff}
+footer .cr{margin-top:12px}
+footer .cr b{color:#fff}
+.contacts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.ct{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:11px 20px;border-radius:30px;transition:transform .2s,box-shadow .2s}
+.ct:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(0,0,0,.6)}
+.ct svg{width:22px;height:22px;fill:currentColor;flex:none}
+.ct.tg{background:#229ed9}
+.ct.vb{background:#7360f2}
+@media(max-width:800px){header nav{display:none}.hero{padding:56px 0 36px}section{padding:56px 0}.quiz{padding:24px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header><div class="w"><div class="logo">PROF<b>-</b>ПМР</div><nav style="display:flex;gap:18px"><a href="#test">Тест</a><a href="#prof">Профессии</a><a href="#edu">Куда поступать</a><a href="#statistics">Статистика</a></nav></div></header>
 
-<div class="hero"><div class="w">
-<div>
-<h1>Кем стать в Приднестровье?</h1>
+<div class="hero"><div class="blob b1"></div><div class="blob b2"></div><div class="w">
+<span class="pill">🧭 Профориентация для молодёжи ПМР</span>
+<h1>Кем стать в <span class="gr">Приднестровье?</span></h1>
 <p>Пройди тест из 12 вопросов, узнай подходящие профессии и найди, где на них учиться: адреса, телефоны и направления вузов и техникумов ПМР.</p>
 <a class="btn" href="#test">Пройти тест</a><a class="btn o" href="#edu">Куда поступать</a>
-</div>
-<svg class="compass" viewBox="0 0 300 300" role="img" aria-label="Компас направлений: технологии, люди, творчество, техника">
-<circle cx="150" cy="150" r="140" fill="#fff" stroke="#d3e2d9" stroke-width="2"/>
-<circle cx="150" cy="150" r="104" fill="none" stroke="#d3e2d9" stroke-dasharray="3 7"/>
-<polygon points="150,34 166,150 150,266 134,150" fill="#0f6b46"/>
-<polygon points="34,150 150,134 266,150 150,166" fill="#0a3a29" opacity=".85"/>
-<polygon points="150,34 160,142 150,150 140,142" fill="#d4372c"/>
-<circle cx="150" cy="150" r="9" fill="#f2b632"/>
-<g font-family="Golos Text,sans-serif" font-size="13" font-weight="700" fill="#12231b" text-anchor="middle">
-<text x="150" y="22">IT</text><text x="150" y="292">Техника</text><text x="18" y="155">Люди</text><text x="283" y="155">Творчество</text></g>
-</svg>
+<div class="stats"><div><b>7</b><span>направлений</span></div><div><b>12</b><span>вопросов теста</span></div><div><b>100%</b><span>анонимно</span></div></div>
 </div></div>
 
 <section id="test"><div class="w">
@@ -119,21 +134,16 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-si
 
 <section id="prof"><div class="w">
 <h2>Профессиональные направления</h2>
-<p class="sub">Примеры профессий по четырём направлениям теста и по рынку труда ПМР.</p>
+<p class="sub">Семь профессиональных направлений теста и их специализации.</p>
 <div class="grid">
-<div class="card"><div class="ico">💻</div><h3>IT и технологии</h3><p>Программист, разработчик, системный администратор, IT-поддержка, аналитик.</p></div>
-<div class="card"><div class="ico">🤝</div><h3>Работа с людьми</h3><p>Педагог, медицинский специалист, менеджер, специалист по работе с клиентами, оператор колл-центра.</p></div>
-<div class="card"><div class="ico">🎨</div><h3>Творчество</h3><p>Дизайнер, маркетолог, специалист по рекламе, контент-специалист, работник сферы искусства.</p></div>
-<div class="card"><div class="ico">🔧</div><h3>Техника и рабочие профессии</h3><p>Инженер, электрик, механик, строитель, энергетик, специалист производства.</p></div>
+<div class="card"><div class="ico">💻</div><h3>IT-сфера</h3><p>Разработка, аналитика и работа с данными, инфраструктура и эксплуатация, информационная безопасность, дизайн и UI/UX, продукт и управление.</p></div>
+<div class="card"><div class="ico">📣</div><h3>Маркетинг и продвижение</h3><p>Интернет-маркетинг, SEO-специалист, таргетолог, SMM-специалист, контент-маркетолог, бренд-менеджер.</p></div>
+<div class="card"><div class="ico">📊</div><h3>Аналитика</h3><p>Бизнес-, системная, продуктовая, финансовая и маркетинговая аналитика.</p></div>
+<div class="card"><div class="ico">🎓</div><h3>Образование и педагогика</h3><p>Дошкольное и школьное, специальное, дополнительное образование, корпоративное обучение, EdTech.</p></div>
+<div class="card"><div class="ico">🧬</div><h3>Медицина и биотехнологии</h3><p>Лечебное дело, педиатрия, хирургия, генетика и молекулярная биология, биоинформатика.</p></div>
+<div class="card"><div class="ico">⚙️</div><h3>Инженерия и технические науки</h3><p>Программная инженерия, электроника и микроконтроллеры, робототехника, аэрокосмические системы, цифровые сенсорные системы.</p></div>
+<div class="card"><div class="ico">🧠</div><h3>Психология и социальные профессии</h3><p>Психология, педагогика, социальная работа, психология труда и организационная психология.</p></div>
 </div>
-<div class="tw card" style="margin-top:16px;padding:8px"><table>
-<tr><th>Направление</th><th>Почему перспективно</th><th>Что развивать</th></tr>
-<tr><td>IT и цифровизация</td><td>Технологии используются во многих сферах</td><td>Логика, программирование, цифровая грамотность</td></tr>
-<tr><td>Инженерия и автоматизация</td><td>Производству нужны технические специалисты</td><td>Математика, физика, техника</td></tr>
-<tr><td>Медицина и образование</td><td>Постоянная потребность общества</td><td>Знания, ответственность, коммуникация</td></tr>
-<tr><td>Рабочие профессии</td><td>Практические навыки остаются востребованными</td><td>Профессиональная подготовка и современные технологии</td></tr>
-<tr><td>Клиентский сервис и колл-центры</td><td>Есть офисные и удалённые вакансии, часто с обучением</td><td>Общение, продажи, цифровые инструменты</td></tr>
-</table></div>
 </div></section>
 
 <section id="edu"><div class="w">
@@ -169,33 +179,44 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-si
 <div class="note">Статистика формируется автоматически на основе ответов участников исследования.</div>
 </div></section>
 
-<footer><div class="w">PROF-ПМР · Профориентационный навигатор · Исследовательский проект 2026</div></footer>
+<footer><div class="w">
+<div class="l1">PROF-ПМР · Профориентационный навигатор · Исследовательский проект 2026</div>
+<div class="cr">Создатель: <b>Кожухарь Виктория Сергеевна</b></div>
+<div class="cr">По вопросам писать:</div>
+<div class="contacts">
+<a class="ct tg" href="https://t.me/vqkdi" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 3.6 2.7 11c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8l3.2-15.1c.3-1.3-.5-1.9-1.4-1.5Z"/></svg>@vqkdi</a>
+<a class="ct vb" href="viber://chat?number=%2B37377825139" aria-label="Viber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.6 2 3 4.9 3 10c0 2.9 1.3 5 3.5 6.2V21l3.6-2.4c.6.1 1.2.1 1.9.1 5.4 0 9-2.9 9-8.7S17.4 2 12 2Zm4.6 13.1c-.3.8-1.4 1.4-2.2 1.2-2.9-.8-4.9-2.7-6.1-5.4-.4-.9.1-1.9.9-2.3.3-.2.7-.1.9.2l.9 1.4c.2.3.1.6-.1.9l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.2-.2.6-.3.9-.1l1.5.9c.3.2.4.6.3.9Z"/></svg>+373 77 825 139</a>
+</div>
+</div></footer>
 
 <script>
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzRqWCt51WLS5ptxfJFDtZQJ_J4qAR0fkAauCj641M7fZJLG6LQc6cnRQDmCxe4Hdom/exec";
 const STATISTICS_URL=SCRIPT_URL;
 const $=id=>document.getElementById(id);
-const KEYS=["tech","people","creative","practical"];
+const KEYS=["it","marketing","analytics","education","medicine","engineering","psychology"];
 const info={
-tech:{name:"💻 Технологии и IT",jobs:["Программист","Разработчик","Системный администратор","IT-специалист","Аналитик"]},
-people:{name:"🤝 Работа с людьми",jobs:["Педагог","Медицинский специалист","Менеджер","Специалист клиентского сервиса","Оператор колл-центра"]},
-creative:{name:"🎨 Творческие направления",jobs:["Дизайнер","Маркетолог","Специалист по рекламе","Контент-специалист","Работник сферы искусства"]},
-practical:{name:"🔧 Технические и рабочие профессии",jobs:["Инженер","Электрик","Механик","Строитель","Специалист производства"]}
+it:{name:"💻 IT-сфера",jobs:["Фронтенд-разработчик","Бэкенд-разработчик","Фуллстек-разработчик","Разработчик игр","Системный администратор","DevOps / SRE-инженер","Специалист по информационной безопасности","UI/UX-дизайнер","Продуктовый менеджер","Проектный менеджер"]},
+marketing:{name:"📣 Маркетинг и продвижение",jobs:["Интернет-маркетолог","SEO-специалист","Таргетолог","SMM-специалист","Контент-маркетолог","Бренд-менеджер"]},
+analytics:{name:"📊 Аналитика",jobs:["Бизнес-аналитик","Системный аналитик","Продуктовый аналитик","Финансовый аналитик","Маркетинговый аналитик","Аналитик данных","Дата-сайентист","ML-инженер"]},
+education:{name:"🎓 Образование и педагогика",jobs:["Воспитатель","Учитель","Дефектолог","Логопед","Педагог дополнительного образования","Специалист по корпоративному обучению","Разработчик онлайн-курсов (EdTech)"]},
+medicine:{name:"🧬 Медицина и биотехнологии",jobs:["Врач-лечебник","Педиатр","Хирург","Генетик","Молекулярный биолог","Биоинформатик"]},
+engineering:{name:"⚙️ Инженерия и технические науки",jobs:["Программный инженер","Инженер-электронщик","Специалист по микроконтроллерам","Робототехник","Инженер аэрокосмических систем","Специалист по IoT и сенсорным системам"]},
+psychology:{name:"🧠 Психология и социальные профессии",jobs:["Психолог","Педагог","Социальный работник","Организационный психолог"]}
 };
-/* порядок ответов: tech, people, creative, practical */
+/* порядок ответов: it, marketing, analytics, education, medicine, engineering, psychology */
 const Q=[
-["Что тебе интереснее?",["💻 Компьютеры и технологии","🤝 Общение и помощь людям","🎨 Творчество и новые идеи","🔧 Работа руками и конкретный результат"]],
-["Какая задача тебе ближе?",["🔍 Найти ошибку в системе","🗣️ Объяснить человеку сложную вещь","💡 Придумать идею","🔨 Починить или собрать что-то"]],
-["Что важнее в будущей работе?",["🚀 Новые технологии","❤️ Работа с людьми","✨ Свобода творчества","⚙️ Практический результат"]],
-["Как ты принимаешь решения?",["📊 Анализирую факты","👥 Советуюсь с людьми","🌟 Доверяю интуиции","✅ Выбираю практичный вариант"]],
-["Где тебе комфортнее?",["🖥️ За компьютером","👨‍👩‍👧 В коллективе","🎭 В творческой среде","🏗️ На объекте или производстве"]],
-["Что тебе легче даётся?",["🧠 Логика","💬 Общение","🪄 Воображение","🛠️ Практические действия"]],
-["Как ты относишься к технологиям?",["🔥 Хочу постоянно изучать","👍 Использую, если помогают людям","🎨 Использую для творчества","⚙️ Использую, если упрощают работу"]],
-["Что принесло бы больше удовлетворения?",["💻 Создать работающую систему","❤️ Понять, что я кому-то помог","🌈 Воплотить свою идею","🔩 Сделать вещь, которая работает"]],
-["Какой школьный проект тебе интереснее?",["Сделать сайт или программу","Организовать мероприятие или помощь другим","Оформить плакат, видео или презентацию","Собрать модель или устройство"]],
-["Как ты любишь проводить свободное время?",["Разбираться в гаджетах, играх, программах","Общаться и помогать друзьям","Рисовать, снимать, писать, придумывать","Мастерить, чинить, заниматься техникой"]],
-["Какой навык хочешь развить?",["Программирование и работа с данными","Умение убеждать и работать с людьми","Дизайн и творческое мышление","Работа с оборудованием и инструментами"]],
-["Какая рабочая неделя тебе подходит?",["Сложные задачи за компьютером","Много общения с людьми","Свободный график и творческие задачи","Результат своими руками на объекте"]]
+["Что тебе интереснее?",["💻 Создавать программы, сайты и приложения","📣 Продвигать товары, услуги и бренды","📊 Разбирать данные и находить причины","🎓 Учить и объяснять другим","🩺 Здоровье человека и наука о живом","🤖 Электроника, роботы и устройства","🧠 Понимать людей и их состояние"]],
+["Какая задача тебе ближе?",["🔍 Найти ошибку в коде","📱 Придумать, как привлечь аудиторию в соцсетях","📉 Понять по цифрам, где процесс даёт сбой","🗣️ Объяснить сложную тему так, чтобы поняли все","🩹 Помочь человеку с проблемой со здоровьем","🔧 Спроектировать и собрать рабочее устройство","👂 Выслушать человека и помочь ему разобраться в себе"]],
+["Что важнее в будущей работе?",["🚀 Новые технологии и цифровые продукты","✨ Заметный результат у аудитории","📐 Решения, основанные на фактах","🌱 Развитие других людей","❤️ Сохранять и улучшать здоровье","⚙️ Точные расчёты и реальные системы","🤝 Помощь людям в трудной ситуации"]],
+["Как ты принимаешь решения?",["🧩 Выстраиваю логику и алгоритм","🌟 Ориентируюсь на тренды и реакцию аудитории","📊 Анализирую факты и цифры","👥 Учитываю возможности и потребности ученика","🔬 Опираюсь на проверенные знания и науку","✅ Считаю, проверяю и испытываю на практике","💬 Прислушиваюсь к чувствам и мотивам людей"]],
+["Где тебе комфортнее?",["🖥️ За компьютером над сложной задачей","📈 В команде, которая запускает рекламные кампании","🗂️ С таблицами, отчётами и графиками","🏫 В классе или кружке с детьми","🏥 В больнице или научной лаборатории","🏭 В мастерской или на производстве","🛋️ В кабинете, где идёт разговор один на один"]],
+["Что тебе легче даётся?",["🧠 Логика и программирование","🪄 Креативные идеи и умение убеждать","🔢 Работа с числами и информацией","⏳ Терпение и умение объяснять","🧪 Биология и химия","📏 Математика и физика","💞 Эмпатия и умение слушать"]],
+["Как ты относишься к технологиям?",["🔥 Хочу создавать их сам(а)","📣 Использую для продвижения и общения с аудиторией","📊 Использую для сбора и анализа данных","🎓 Использую для обучения, например онлайн-курсы","🧬 Использую для науки и медицины","⚙️ Хочу понимать, как они устроены внутри","👥 Интересно, как они влияют на людей"]],
+["Что принесло бы больше удовлетворения?",["💻 Запустить работающее приложение","📈 Увидеть, что о продукте узнали тысячи людей","🔎 Найти в данных то, что другие не заметили","🌟 Увидеть, что ученик понял и вырос","💊 Помочь человеку выздороветь","🔩 Запустить устройство, которое я спроектировал","🤗 Помочь человеку справиться с трудностями"]],
+["Какой школьный проект тебе интереснее?",["Сделать сайт или программу","Придумать рекламу или оформить соцсеть","Собрать данные и построить диаграммы","Провести занятие для младших","Исследовать, как работает организм","Собрать робота или электронную схему","Провести опрос и разобраться в поведении людей"]],
+["Как ты любишь проводить свободное время?",["Играть, разбираться в программах и нейросетях","Вести блог, снимать и придумывать контент","Решать головоломки и считать","Помогать младшим с уроками","Читать и смотреть про науку и здоровье","Паять и мастерить электронику","Слушать друзей и помогать им с проблемами"]],
+["Какой навык хочешь развить?",["Программирование","SEO, реклама и работа с аудиторией","Анализ данных и финансовое моделирование","Педагогика и методика обучения","Медицина или генетика","Электроника и робототехника","Консультирование и работа с людьми"]],
+["Какая рабочая неделя тебе подходит?",["Сложные задачи за компьютером","Разные рекламные задачи и контент","Отчёты, метрики и исследования","Уроки, занятия и подготовка материалов","Приём пациентов или работа в лаборатории","Проекты, расчёты и испытания техники","Встречи и консультации с людьми"]]
 ];
 const R=[
 ["mainFactor","1. Что для тебя главное при выборе профессии?",["Высокая зарплата","Интерес к работе","Стабильность","Престиж профессии","Возможность работать удалённо","Карьерный рост"]],
@@ -211,59 +232,59 @@ const R=[
 const T={v:"Вуз",s:"Техникум / колледж"};
 const PGU="https://abitur.spsu.ru/napravleniya-podgotovki";
 const EDU=[
-{n:"ПГУ — Физико-технический институт",t:"v",c:"Тирасполь",a:"ул. Восстания, 2а, корпус 8",p:["+373 (533) 8-46-23"],w:PGU,k:["tech","practical"],
+{n:"ПГУ — Физико-технический институт",t:"v",c:"Тирасполь",a:"ул. Восстания, 2а, корпус 8",p:["+373 (533) 8-46-23"],w:PGU,k:["it","analytics","engineering"],
  b:["Прикладная математика и информатика","Информатика и вычислительная техника","Информационные системы и технологии (безопасность информационных систем)","Программная инженерия","Инфокоммуникационные технологии и системы связи","Электроэнергетика и электротехника","Автоматизация технологических процессов и производств","Эксплуатация транспортно-технологических машин и комплексов","Педагогическое образование: физика и математика"],
  m:["Информационные системы и технологии","Электроэнергетика и электротехника","Эксплуатация транспортно-технологических машин и комплексов"]},
-{n:"ПГУ — Технический колледж им. Ю. А. Гагарина (факультет СПО ФТИ)",t:"s",c:"Тирасполь",a:"ул. Восстания, 2а, корпус 8",p:["+373 (533) 9-30-79"],w:PGU,k:["tech","practical"],
+{n:"ПГУ — Технический колледж им. Ю. А. Гагарина (факультет СПО ФТИ)",t:"s",c:"Тирасполь",a:"ул. Восстания, 2а, корпус 8",p:["+373 (533) 9-30-79"],w:PGU,k:["it","engineering"],
  s:["Компьютерные системы и комплексы","Электроснабжение (по отраслям)","Эксплуатация и обслуживание электрического и электромеханического оборудования","Техническая эксплуатация и обслуживание роботизированного производства"]},
-{n:"Бендерский политехнический институт ПГУ",t:"v",c:"Бендеры",a:"ул. Бендерского восстания, 7",p:["+373 (552) 6-09-63"],w:"http://www.bpsu.ru",k:["practical","tech","creative"],
+{n:"Бендерский политехнический институт ПГУ",t:"v",c:"Бендеры",a:"ул. Бендерского восстания, 7",p:["+373 (552) 6-09-63"],w:"http://www.bpsu.ru",k:["engineering","it","analytics"],
  b:["Архитектура","Строительство (теплогазоснабжение и вентиляция; промышленное и гражданское строительство)","Экономика предприятий и организаций (строительство)","Информационная безопасность автоматизированных систем","Наземные транспортно-технологические средства (автомобильная техника)"],
  m:["Строительство","Экономика и управление в строительстве"],
  s:["Строительство и эксплуатация зданий и сооружений","Монтаж и эксплуатация оборудования систем газоснабжения","Конструирование, моделирование и технология изготовления изделий лёгкой промышленности","Информационные системы и программирование","Монтаж и эксплуатация линий электропередачи","Землеустройство","Эксплуатация транспортного электрооборудования и автоматики","Техническое обслуживание и ремонт автотранспортных средств","Экономика и бухгалтерский учёт","Финансы","Повар, кондитер"]},
-{n:"Рыбницкий филиал ПГУ",t:"v",c:"Рыбница",a:"ул. Гагарина, 2",p:["+373 (555) 4-30-09"],w:PGU,k:["tech","practical","creative"],
+{n:"Рыбницкий филиал ПГУ",t:"v",c:"Рыбница",a:"ул. Гагарина, 2",p:["+373 (555) 4-30-09"],w:PGU,k:["it","analytics","engineering"],
  b:["Прикладная информатика","Программная инженерия","Электроэнергетика и электротехника (заочно)","Автоматизация технологических процессов и производств","Менеджмент (финансовый менеджмент)","Педагогическое образование: английский и немецкий языки","Дизайн"],
  m:["Прикладная информатика","Автоматизация технологических процессов и производств","Педагогическое образование (информационные технологии в образовании)"],
  s:["Монтаж и техническая эксплуатация автоматизированных систем ЖКХ"]},
-{n:"ПГУ — Экономический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:PGU,k:["people","tech"],
+{n:"ПГУ — Экономический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:PGU,k:["analytics","marketing","it"],
  b:["Экономика: бухгалтерский учёт, анализ и аудит; внешнеэкономические связи и таможенный консалтинг; экономика и менеджмент; финансы и кредит; налоги и налоговый консалтинг","Менеджмент (управление персоналом)","Бизнес-информатика","Экономическая безопасность"],
  m:["Экономика","Менеджмент","Финансы и кредит"]},
-{n:"ПГУ — Юридический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:PGU,k:["people"],
+{n:"ПГУ — Юридический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:PGU,k:[],
  b:["Правовое обеспечение национальной безопасности (гражданско-правовая, уголовно-правовая, государственно-правовая)","Судебная и прокурорская деятельность"]},
-{n:"ПГУ — Медицинский институт им. Н. В. Склифосовского",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["people"],
+{n:"ПГУ — Медицинский институт им. Н. В. Склифосовского",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["medicine"],
  b:["Лечебное дело (врач-лечебник)","Стоматология (врач-стоматолог)","Фармация (провизор)","Сестринское дело"]},
-{n:"ПГУ — Факультет педагогики и психологии",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["people"],
+{n:"ПГУ — Факультет педагогики и психологии",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["education","psychology"],
  b:["Психология","Педагогическое образование: начальное образование","Психолого-педагогическое образование: дошкольное образование","Специальное (дефектологическое) образование","Педагогика и психология девиантного поведения"],
  m:["Психология","Педагогическое образование","Психолого-педагогическое образование","Специальное (дефектологическое) образование"]},
-{n:"ПГУ — Факультет физической культуры и спорта",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:"http://sport.spsu.ru",k:["people"],
+{n:"ПГУ — Факультет физической культуры и спорта",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:"http://sport.spsu.ru",k:["education"],
  b:["Физическая культура: физкультурное образование; спортивная тренировка","Адаптивная физическая культура (физическая реабилитация)"],
  m:["Спорт","Педагогическое образование","Адаптивная физическая культура"]},
-{n:"ПГУ — Филологический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["people","creative"],
+{n:"ПГУ — Филологический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["education"],
  b:["Филология (русский, молдавский, украинский язык и литература)","Лингвистика (английский и немецкий языки)","Перевод и переводоведение"],
  m:["Лингвистика"]},
-{n:"ПГУ — Факультет государственного управления и социально-гуманитарных наук",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["people","creative"],
+{n:"ПГУ — Факультет государственного управления и социально-гуманитарных наук",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["marketing","psychology","education"],
  b:["Государственное и муниципальное управление","Журналистика (мультимедийная)","Реклама и связи с общественностью","Политология (международные отношения)","Социальная работа","Педагогическое образование (музыкальное)","История","Социально-культурная деятельность"],
  m:["Государственное и муниципальное управление","Медиакоммуникации","Политология","Реклама и связи с общественностью"]},
-{n:"ПГУ — Естественно-географический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["practical","people"],
+{n:"ПГУ — Естественно-географический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["medicine","education"],
  b:["География","Биология (биоэкология)","Техносферная безопасность","Землеустройство и кадастры (заочно)","Туризм","Педагогическое образование: биология, география (заочно)","Фундаментальная и прикладная химия"],
  m:["Биология (экология)","География","Туризм"]},
-{n:"ПГУ — Аграрно-технологический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["practical"],
+{n:"ПГУ — Аграрно-технологический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:[],
  b:["Агрономия","Технология производства и переработки сельскохозяйственной продукции","Ландшафтная архитектура","Технология продукции и организация общественного питания (заочно)","Наземные транспортно-технологические средства (технические средства АПК)","Ветеринария"]},
-{n:"Тираспольский институт сельского хозяйства им. М. В. Фрунзе",t:"v",c:"Тирасполь",a:"пгт Новотираспольский, ул. Советская, 14",p:["+373 (533) 7-01-81"],w:"https://tatk--frunze.ucoz.ru/",k:["practical"],x:"Сельскохозяйственные направления. Перечень специальностей смотри на сайте."},
-{n:"Приднестровский государственный институт искусств",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:["creative"],x:"Творческие и художественные направления. Контакты уточни на официальном сайте или в Министерстве просвещения."},
+{n:"Тираспольский институт сельского хозяйства им. М. В. Фрунзе",t:"v",c:"Тирасполь",a:"пгт Новотираспольский, ул. Советская, 14",p:["+373 (533) 7-01-81"],w:"https://tatk--frunze.ucoz.ru/",k:[],x:"Сельскохозяйственные направления. Перечень специальностей смотри на сайте."},
+{n:"Приднестровский государственный институт искусств",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:[],x:"Творческие и художественные направления. Контакты уточни на официальном сайте или в Министерстве просвещения."},
 {n:"Тираспольский юридический институт МВД",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:[],x:"Юридическая и правоохранительная сфера."},
 {n:"Военный институт Министерства обороны ПМР",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:[],x:"Военная служба и профессиональная подготовка."},
-{n:"Тираспольский техникум коммерции",t:"s",c:"Тирасполь",a:"ул. Ленина, 1/3",p:["+373 (533) 7-41-89","+373 (533) 7-44-37"],w:"https://sites.google.com/view/ttktiras",k:["people","practical"],s:["Повара","Продавцы","Менеджмент","Логистика"]},
-{n:"Тираспольский техникум информатики и права",t:"s",c:"Тирасполь",a:"пр. Магистральный, 5 (район Балка)",p:["+373 (533) 4-44-13","+373 (533) 4-23-95"],w:"https://www.ttiip.ru/",k:["tech","people"],s:["Менеджмент","Системное администрирование"],x:"Также информатика, цифровые технологии и право. Полный перечень смотри на сайте."},
+{n:"Тираспольский техникум коммерции",t:"s",c:"Тирасполь",a:"ул. Ленина, 1/3",p:["+373 (533) 7-41-89","+373 (533) 7-44-37"],w:"https://sites.google.com/view/ttktiras",k:["marketing"],s:["Повара","Продавцы","Менеджмент","Логистика"]},
+{n:"Тираспольский техникум информатики и права",t:"s",c:"Тирасполь",a:"пр. Магистральный, 5 (район Балка)",p:["+373 (533) 4-44-13","+373 (533) 4-23-95"],w:"https://www.ttiip.ru/",k:["it"],s:["Менеджмент","Системное администрирование"],x:"Также информатика, цифровые технологии и право. Полный перечень смотри на сайте."},
 {n:"Приднестровский колледж технологий и управления",t:"s",c:"Тирасполь",a:"ул. Гвардейская, 11",p:["+373 (533) 7-56-56","+373 (533) 7-00-98"],w:"https://pktu.idknet.com/",k:[],x:"Технологии и управление. Список специальностей смотри на сайте колледжа."},
-{n:"Промышленно-строительный техникум",t:"s",c:"Тирасполь",a:"ул. Христо Ботева, 24",p:["+373 (533) 9-60-07","+373 (533) 9-64-44"],w:"https://pst.idknet.com/",k:["practical"],x:"Промышленные и строительные специальности и рабочие профессии. Перечень смотри на сайте."},
-{n:"Бендерский педагогический колледж",t:"s",c:"Бендеры",a:"ул. П. Морозова, 8",p:["+373 (552) 6-46-80","+373 (552) 6-46-81"],w:"https://pedagogcollege-bendery.ru/",k:["people"],x:"Педагогика и работа с детьми. Перечень специальностей смотри на сайте."},
-{n:"Днестровский техникум энергетики и компьютерных технологий",t:"s",c:"Днестровск",a:"ул. Строителей, 38",p:["+373 (219) 3-50-08"],w:"https://dnestehas.ucoz.ru/",k:["tech","practical"],x:"Энергетика, техника и компьютерные технологии. Перечень специальностей смотри на сайте."},
-{n:"Дубоссарский индустриальный техникум",t:"s",c:"Дубоссары",a:"ул. Энергетиков, 7",p:["+373 (215) 3-47-13"],w:"http://www.ditpmr.ru/",k:["practical"],x:"Индустриальные и технические специальности. Перечень смотри на сайте."},
-{n:"Рыбницкий политехнический техникум",t:"s",c:"Рыбница",a:"ул. Индустриальная, 2",p:["+373 (555) 3-22-71"],w:"https://gourpt.ru/",k:["practical","tech"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
-{n:"Каменский политехнический техникум им. И. С. Солтыса",t:"s",c:"Каменка",a:"ул. Ленина, 52",p:["+373 (216) 2-23-49"],w:"https://kampoliteh.ucoz.ru/",k:["practical"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
-{n:"Слободзейский политехнический техникум",t:"s",c:"Слободзея",a:"ул. Тираспольская, 1Б",p:["+373 (557) 2-41-81","+373 (557) 2-27-72"],w:"https://sptpmr.ru/",k:["practical","tech"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
-{n:"«Московский» (экономическое направление)",t:"v",c:"",a:"",p:[],w:"",k:["people"],x:"Экономические специальности. Официальное название, адрес и контакты нужно уточнить."},
-{n:"«Южно-Украинский»",t:"v",c:"",a:"",p:[],w:"",k:["people","tech"],b:["Менеджмент","Туризм","Бухгалтер","Прикладная информатика"],x:"Официальное название, адрес и контакты нужно уточнить."}
+{n:"Промышленно-строительный техникум",t:"s",c:"Тирасполь",a:"ул. Христо Ботева, 24",p:["+373 (533) 9-60-07","+373 (533) 9-64-44"],w:"https://pst.idknet.com/",k:["engineering"],x:"Промышленные и строительные специальности и рабочие профессии. Перечень смотри на сайте."},
+{n:"Бендерский педагогический колледж",t:"s",c:"Бендеры",a:"ул. П. Морозова, 8",p:["+373 (552) 6-46-80","+373 (552) 6-46-81"],w:"https://pedagogcollege-bendery.ru/",k:["education"],x:"Педагогика и работа с детьми. Перечень специальностей смотри на сайте."},
+{n:"Днестровский техникум энергетики и компьютерных технологий",t:"s",c:"Днестровск",a:"ул. Строителей, 38",p:["+373 (219) 3-50-08"],w:"https://dnestehas.ucoz.ru/",k:["it","engineering"],x:"Энергетика, техника и компьютерные технологии. Перечень специальностей смотри на сайте."},
+{n:"Дубоссарский индустриальный техникум",t:"s",c:"Дубоссары",a:"ул. Энергетиков, 7",p:["+373 (215) 3-47-13"],w:"http://www.ditpmr.ru/",k:["engineering"],x:"Индустриальные и технические специальности. Перечень смотри на сайте."},
+{n:"Рыбницкий политехнический техникум",t:"s",c:"Рыбница",a:"ул. Индустриальная, 2",p:["+373 (555) 3-22-71"],w:"https://gourpt.ru/",k:["engineering","it"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
+{n:"Каменский политехнический техникум им. И. С. Солтыса",t:"s",c:"Каменка",a:"ул. Ленина, 52",p:["+373 (216) 2-23-49"],w:"https://kampoliteh.ucoz.ru/",k:["engineering"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
+{n:"Слободзейский политехнический техникум",t:"s",c:"Слободзея",a:"ул. Тираспольская, 1Б",p:["+373 (557) 2-41-81","+373 (557) 2-27-72"],w:"https://sptpmr.ru/",k:["engineering","it"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
+{n:"«Московский» (экономическое направление)",t:"v",c:"",a:"",p:[],w:"",k:["analytics","marketing"],x:"Экономические специальности. Официальное название, адрес и контакты нужно уточнить."},
+{n:"«Южно-Украинский»",t:"v",c:"",a:"",p:[],w:"",k:["analytics","it","marketing"],b:["Менеджмент","Туризм","Бухгалтер","Прикладная информатика"],x:"Официальное название, адрес и контакты нужно уточнить."}
 ];
 function list(a){return "<ul style='margin:6px 0 10px;padding-left:20px'>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>"}
 function spec(e){
@@ -276,7 +297,7 @@ function spec(e){
 }
 
 let current=0,saved=false,hist=[],eduC="all",eduT="all",eduK="all";
-let scores={tech:0,people:0,creative:0,practical:0};
+let scores={it:0,marketing:0,analytics:0,education:0,medicine:0,engineering:0,psychology:0};
 let participant={city:"",age:""};
 
 function startTest(){
@@ -307,7 +328,7 @@ function finishResearch(){
  $("rq").style.display="none";showResult();
 }
 function restart(){
- current=0;saved=false;hist=[];scores={tech:0,people:0,creative:0,practical:0};
+ current=0;saved=false;hist=[];scores={it:0,marketing:0,analytics:0,education:0,medicine:0,engineering:0,psychology:0};
  participant={city:participant.city,age:participant.age};
  $("result").classList.remove("show");$("result").innerHTML="";$("rq").style.display="none";
  showQ();$("quiz").scrollIntoView({behavior:"smooth"});
@@ -336,7 +357,7 @@ function saveResult(best){
  if(saved)return;saved=true;
  const b=$("saveBtn");b.disabled=true;b.textContent="Результат отправлен";
  const total=KEYS.reduce((s,k)=>s+scores[k],0)||1,pct=k=>Math.round(scores[k]/total*100);
- const data={city:participant.city||"",age:participant.age||"",tech:pct("tech"),people:pct("people"),creative:pct("creative"),practical:pct("practical"),mainDirection:info[best].name,lazy:0,unknown:0,
+ const data={city:participant.city||"",age:participant.age||"",it:pct("it"),marketing:pct("marketing"),analytics:pct("analytics"),education:pct("education"),medicine:pct("medicine"),engineering:pct("engineering"),psychology:pct("psychology"),tech:pct("it")+pct("analytics"),people:pct("education")+pct("medicine")+pct("psychology"),creative:pct("marketing"),practical:pct("engineering"),mainDirection:info[best].name,lazy:0,unknown:0,
   mainFactor:participant.mainFactor||"",workPlace:participant.workPlace||"",higherEducation:participant.higherEducation||"",pmrPerspective:participant.pmrPerspective||"",influence:participant.influence||"",careerCertainty:participant.careerCertainty||"",careerProblem:participant.careerProblem||""};
  fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
  $("result").insertAdjacentHTML("beforeend",`<div class="ok">Результат отправлен. Спасибо за участие в исследовании!</div>`);
