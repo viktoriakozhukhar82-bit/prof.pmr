@@ -354,15 +354,65 @@ function showResult(){
  $("result").innerHTML=h;$("result").classList.add("show");
  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
 }
-function saveResult(best){
- if(saved)return;saved=true;
- const b=$("saveBtn");b.disabled=true;b.textContent="Результат отправлен";
- const total=KEYS.reduce((s,k)=>s+scores[k],0)||1,pct=k=>Math.round(scores[k]/total*100);
- const data={city:participant.city||"",age:participant.age||"",it:pct("it"),marketing:pct("marketing"),analytics:pct("analytics"),education:pct("education"),medicine:pct("medicine"),engineering:pct("engineering"),psychology:pct("psychology"),tech:pct("it")+pct("analytics"),people:pct("education")+pct("medicine")+pct("psychology"),creative:pct("marketing"),practical:pct("engineering"),mainDirection:info[best].name,lazy:0,unknown:0,
-  mainFactor:participant.mainFactor||"",workPlace:participant.workPlace||"",higherEducation:participant.higherEducation||"",pmrPerspective:participant.pmrPerspective||"",influence:participant.influence||"",careerCertainty:participant.careerCertainty||"",careerProblem:participant.careerProblem||""};
- fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
- $("result").insertAdjacentHTML("beforeend",`<div class="ok">Результат отправлен. Спасибо за участие в исследовании!</div>`);
+
+async function saveResult(best) {
+  if (saved) return;
+  saved = true;
+
+  const b = $("saveBtn");
+  b.disabled = true;
+  b.textContent = "Отправляем результат...";
+
+  const total = KEYS.reduce((s, k) => s + scores[k], 0) || 1;
+  const pct = k => Math.round(scores[k] / total * 100);
+
+  const data = {
+    city: participant.city || "",
+    age: participant.age || "",
+    it: pct("it"),
+    marketing: pct("marketing"),
+    analytics: pct("analytics"),
+    education: pct("education"),
+    medicine: pct("medicine"),
+    engineering: pct("engineering"),
+    psychology: pct("psychology"),
+    mainDirection: info[best].name,
+    mainFactor: participant.mainFactor || "",
+    workPlace: participant.workPlace || "",
+    higherEducation: participant.higherEducation || "",
+    pmrPerspective: participant.pmrPerspective || "",
+    influence: participant.influence || "",
+    careerCertainty: participant.careerCertainty || "",
+    careerProblem: participant.careerProblem || ""
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(data)
+    });
+
+    b.textContent = "Результат отправлен";
+    $("result").insertAdjacentHTML(
+      "beforeend",
+      '<div class="ok">Запрос отправлен. Проверьте сохранение результата.</div>'
+    );
+  } catch (error) {
+    saved = false;
+    b.disabled = false;
+    b.textContent = "Попробовать ещё раз";
+    $("result").insertAdjacentHTML(
+      "beforeend",
+      '<div class="ok">Не удалось отправить результат. Попробуйте ещё раз.</div>'
+    );
+    console.error("Ошибка отправки:", error);
+  }
 }
+
 
 /* ---------- куда поступать ---------- */
 function setK(k){eduK=k;eduC="all";eduT="all";drawEdu()}
