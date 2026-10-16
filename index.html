@@ -2,2735 +2,389 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PROF-ПМР — Профориентационный навигатор</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PROF-ПМР — профориентационный навигатор</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;700&family=Unbounded:wght@500;700&display=swap">
 <style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f8fc;
-    color: #171827;
-    line-height: 1.55;
-}
-
-header {
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 100;
-    border-bottom: 1px solid #e7e8ef;
-}
-
-nav {
-    max-width: 1100px;
-    margin: auto;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.logo span {
-    color: #5b5ce2;
-}
-
-nav a {
-    color: #333;
-    text-decoration: none;
-    margin-left: 18px;
-    font-size: 14px;
-}
-
-main {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-.hero {
-    min-height: 570px;
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 35px;
-    align-items: center;
-}
-
-.badge {
-    display: inline-block;
-    background: #eaeaFF;
-    color: #5052d9;
-    padding: 7px 12px;
-    border-radius: 30px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-h1 {
-    font-size: clamp(44px, 7vw, 72px);
-    line-height: .98;
-    letter-spacing: -3px;
-    margin: 18px 0;
-}
-
-.gradient {
-    color: #5b5ce2;
-}
-
-.lead,
-.sub {
-    color: #697080;
-    font-size: 18px;
-}
-
-.buttons {
-    margin-top: 28px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 18px;
-    border-radius: 13px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 8px 8px 0;
-    border: none;
-    cursor: pointer;
-}
-
-.primary {
-    background: #5b5ce2;
-    color: white;
-}
-
-.secondary {
-    background: white;
-    color: #222;
-    border: 1px solid #ddd;
-}
-
-.hero-card,
-.card,
-.result,
-.form-card {
-    background: white;
-    border: 1px solid #e7e8ef;
-    border-radius: 22px;
-    padding: 25px;
-    box-shadow: 0 10px 30px #2221;
-}
-
-.hero-card .emoji {
-    font-size: 70px;
-}
-
-section {
-    padding: 60px 0;
-}
-
-h2 {
-    font-size: 34px;
-    margin: 0 0 8px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 17px;
-}
-
-.icon {
-    font-size: 32px;
-}
-
-.card p {
-    color: #697080;
-}
-
-.test {
-    background: #17192b;
-    color: white;
-    border-radius: 25px;
-    padding: 28px;
-}
-
-.q {
-    display: none;
-}
-
-.q.active {
-    display: block;
-}
-
-.answers {
-    display: grid;
-    gap: 10px;
-}
-
-.answer {
-    background: #25283d;
-    color: white;
-    border: 1px solid #3b3e55;
-    padding: 14px;
-    border-radius: 12px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.answer:hover {
-    border-color: #8a8bf0;
-}
-
-.progress {
-    height: 7px;
-    background: #303348;
-    border-radius: 20px;
-    margin: 20px 0 28px;
-}
-
-.bar {
-    height: 100%;
-    width: 0;
-    background: #7778ed;
-    border-radius: 20px;
-    transition: width .3s;
-}
-
-.result {
-    display: none;
-    color: #171827;
-    margin-top: 22px;
-}
-
-.result.show {
-    display: block;
-}
-
-.percent-row {
-    margin: 15px 0;
-}
-
-.percent-top {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
-.track {
-    height: 11px;
-    background: #ececf2;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-top: 6px;
-}
-
-.fill {
-    height: 100%;
-    background: #5b5ce2;
-    transition: width .5s;
-}
-
-.tag {
-    display: inline-block;
-    background: #ececff;
-    color: #4f51d8;
-    border-radius: 20px;
-    padding: 6px 10px;
-    margin: 3px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.school {
-    border-left: 4px solid #5b5ce2;
-}
-
-.school small {
-    color: #737687;
-}
-
-.table {
-    overflow: auto;
-    background: white;
-    border-radius: 18px;
-    border: 1px solid #e5e5ec;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 650px;
-}
-
-th,
-td {
-    text-align: left;
-    padding: 14px;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background: #fafaff;
-    color: #686b7b;
-}
-
-.note {
-    background: #eeeeff;
-    padding: 17px;
-    border-left: 4px solid #5b5ce2;
-    border-radius: 10px;
-    margin-top: 18px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 7px;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    font-size: 16px;
-    background: white;
-}
-
-#startTest {
-    margin-top: 10px;
-}
-
-.success {
-    padding: 15px;
-    background: #e9f8ed;
-    color: #247238;
-    border-radius: 12px;
-    margin-top: 15px;
-}
-
-.lazy-result {
-    text-align: center;
-    padding: 15px;
-}
-
-.lazy-emoji {
-    font-size: 70px;
-}
-
-footer {
-    text-align: center;
-    padding: 35px;
-    color: #777;
-    border-top: 1px solid #e5e5e9;
-}
-
-@media (max-width: 800px) {
-
-    nav a {
-        display: none;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        letter-spacing: -2px;
-    }
-
-}
-
+:root{--bg:#f0f6f2;--card:#fff;--ink:#12231b;--mute:#587063;--line:#d3e2d9;--g:#0f6b46;--gd:#0a3a29;--gs:#dcf0e5;--r:#d4372c;--y:#f2b632}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Golos Text",system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,"Golos Text",system-ui,sans-serif;line-height:1.15;margin:0}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h2{font-size:clamp(25px,4.6vw,36px);margin-bottom:12px}
+h3{font-size:17px}
+.sub{color:var(--mute);max-width:62ch;margin:0 0 26px}
+header{position:sticky;top:0;z-index:20;background:rgba(240,246,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+header .w{display:flex;align-items:center;gap:20px;height:60px}
+.logo{font:700 18px Unbounded,sans-serif;margin-right:auto;color:var(--gd)}.logo b{color:var(--r)}
+header a{color:var(--mute);text-decoration:none;font-size:15px}header a:hover{color:var(--g)}
+.hero{padding:56px 0 30px}
+.hero .w{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+h1{font-size:clamp(36px,7vw,66px);letter-spacing:-1.5px}
+.hero p{font-size:19px;color:var(--mute);max-width:54ch;margin:20px 0 28px}
+.btn{display:inline-block;border:0;border-radius:12px;padding:14px 24px;font:700 16px "Golos Text",sans-serif;cursor:pointer;text-decoration:none;background:var(--g);color:#fff;margin:0 10px 10px 0}
+.btn.o{background:none;color:var(--ink);border:2px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:default}
+:is(.btn,.chip,.ans,a,select,input,summary):focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.compass{width:100%;max-width:340px;justify-self:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.grid .card p{margin:6px 0 0;color:var(--mute);font-size:15px}
+.ico{font-size:28px;margin-bottom:6px}
+.form{max-width:640px}
+.fg{margin-bottom:16px}.fg label{display:block;font-weight:700;margin-bottom:6px}
+.fg input,.fg select{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+.mini{font-size:14px;color:var(--mute)}
+.quiz{background:var(--gd);color:#fff;border-radius:22px;padding:28px;margin-top:22px;max-width:760px}
+.quiz h3{font-size:21px;margin:6px 0 18px}
+.prog{height:6px;background:rgba(255,255,255,.2);border-radius:3px;margin-bottom:22px}.prog i{display:block;height:100%;width:0;background:var(--y);border-radius:3px;transition:width .3s}
+.ans{display:block;width:100%;text-align:left;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:14px 16px;margin:9px 0;font:inherit;cursor:pointer}
+.ans:hover{border-color:var(--y);background:rgba(255,255,255,.14)}
+.back{background:none;border:0;color:#a9d9c0;cursor:pointer;font:inherit;font-size:14px;padding:8px 0;margin-top:8px}
+.quiz .fg select{color:var(--ink)}
+.res{display:none;background:var(--card);color:var(--ink);border-radius:18px;padding:24px;margin-top:20px}.res.show{display:block}
+.pr{margin:14px 0}.pt{display:flex;justify-content:space-between;font-weight:700;font-size:15px}
+.tr{height:10px;background:var(--gs);border-radius:6px;overflow:hidden;margin-top:5px}.fl{height:100%;background:var(--g);border-radius:6px;transition:width .5s}
+.tag{display:inline-block;background:var(--gs);color:var(--gd);border-radius:20px;padding:5px 12px;margin:3px;font-size:14px;font-weight:500}
+.sch{border-top:1px solid var(--line);padding:10px 0;font-size:15px}.sch b{display:block}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.chip{background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:20px;padding:7px 15px;font:inherit;font-size:14px;cursor:pointer}
+.chip.on{border-color:var(--g);background:var(--gs)}
+.lab{font-size:13px;color:var(--mute);margin:12px 0 6px}
+details.card{padding:0}
+summary{cursor:pointer;list-style:none;padding:20px 22px}
+summary::-webkit-details-marker{display:none}
+summary small{display:block;color:var(--mute);margin-top:4px;font-size:14px}
+summary h3{margin-bottom:2px}
+.det{padding:0 22px 22px;font-size:15px}
+.det p{margin:8px 0;color:var(--ink)}
+.det a{color:var(--g);font-weight:700}
+.bd{display:inline-block;font-size:12px;border-radius:6px;padding:2px 8px;background:var(--gs);color:var(--gd);margin-right:6px}
+.warn{background:#fff6dd;border-left:4px solid var(--y);padding:12px 16px;border-radius:8px;font-size:14px;margin-top:10px}
+.note{background:var(--gs);border-radius:12px;padding:14px 18px;font-size:15px;margin-top:20px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.ok{background:#e4f6ea;color:#1c6a36;padding:12px 16px;border-radius:10px;margin-top:14px}
+.big{font:700 40px Unbounded,sans-serif;color:var(--g)}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:14px;text-align:center}
+@media(max-width:800px){header nav{display:none}.hero .w{grid-template-columns:1fr}.compass{max-width:220px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-
 <body>
+<header><div class="w"><div class="logo">PROF<b>-</b>ПМР</div><nav style="display:flex;gap:18px"><a href="#test">Тест</a><a href="#prof">Профессии</a><a href="#edu">Куда поступать</a><a href="#statistics">Статистика</a></nav></div></header>
 
-<header>
-
-<nav>
-
-<div class="logo">
-PROF<span>-ПМР</span>
-</div>
-
+<div class="hero"><div class="w">
 <div>
-<a href="#test">Тест</a>
-<a href="#prof">Профессии</a>
-<a href="#edu">Образование</a>
-<a href="#statistics">Статистика</a>
+<h1>Кем стать в Приднестровье?</h1>
+<p>Пройди тест из 12 вопросов, узнай подходящие профессии и найди, где на них учиться: адреса, телефоны и направления вузов и техникумов ПМР.</p>
+<a class="btn" href="#test">Пройти тест</a><a class="btn o" href="#edu">Куда поступать</a>
 </div>
+<svg class="compass" viewBox="0 0 300 300" role="img" aria-label="Компас направлений: технологии, люди, творчество, техника">
+<circle cx="150" cy="150" r="140" fill="#fff" stroke="#d3e2d9" stroke-width="2"/>
+<circle cx="150" cy="150" r="104" fill="none" stroke="#d3e2d9" stroke-dasharray="3 7"/>
+<polygon points="150,34 166,150 150,266 134,150" fill="#0f6b46"/>
+<polygon points="34,150 150,134 266,150 150,166" fill="#0a3a29" opacity=".85"/>
+<polygon points="150,34 160,142 150,150 140,142" fill="#d4372c"/>
+<circle cx="150" cy="150" r="9" fill="#f2b632"/>
+<g font-family="Golos Text,sans-serif" font-size="13" font-weight="700" fill="#12231b" text-anchor="middle">
+<text x="150" y="22">IT</text><text x="150" y="292">Техника</text><text x="18" y="155">Люди</text><text x="283" y="155">Творчество</text></g>
+</svg>
+</div></div>
 
-</nav>
-
-</header>
-
-<main>
-
-<section class="hero">
-
-<div>
-
-<span class="badge">
-Исследовательский проект · 2026
-</span>
-
-<h1>
-Найди своё
-<span class="gradient">направление.</span>
-</h1>
-
-<p class="lead">
-
-Профориентационный навигатор для современной молодежи
-Приднестровья: интересы, профессии, образование
-и перспективы рынка труда.
-
-</p>
-
-<div class="buttons">
-
-<a class="btn primary" href="#test">
-Пройти тест →
-</a>
-
-<a class="btn secondary" href="#edu">
-Где учиться
-</a>
-
+<section id="test"><div class="w">
+<h2>Профориентационный тест</h2>
+<p class="sub">Сначала пара общих данных для статистики исследования, потом 12 вопросов и короткая анкета.</p>
+<div class="card form" id="startForm">
+<div class="fg"><label for="city">Твой город</label>
+<select id="city"><option value="">Выбери город</option><option>Тирасполь</option><option>Бендеры</option><option>Днестровск</option><option>Рыбница</option><option>Дубоссары</option><option>Слободзея</option><option>Григориополь</option><option>Каменка</option><option>Другой</option></select></div>
+<div class="fg"><label for="age">Возраст</label><input id="age" type="number" min="12" max="30" placeholder="Например, 16"></div>
+<p class="mini">Опрос анонимный и добровольный: имя не собирается. Ответы используются только в обобщённой статистике исследования.</p>
+<button class="btn" onclick="startTest()">Начать тест</button>
 </div>
-
+<div class="quiz" id="quiz" style="display:none">
+<div class="prog"><i id="bar"></i></div>
+<div id="qbox"></div>
+<div id="rq" style="display:none">
+<h3>Небольшая анкета</h3>
+<p class="mini" style="color:#a9d9c0">Ответы нужны только для обобщённой статистики исследования.</p>
+<div id="rbox"></div>
+<button class="btn" style="background:var(--y);color:#12231b" onclick="finishResearch()">Показать результат</button>
 </div>
-
-<div class="hero-card">
-
-<div class="emoji">
-🧭
+<div class="res" id="result"></div>
 </div>
-
-<h2>
-Интересы + возможности
-</h2>
-
-<p class="sub">
-
-Выбор профессии — это сочетание личных интересов,
-способностей, образования и реальных возможностей.
-
-</p>
-
-</div>
-
-</section>
-
-
-<section id="test">
-
-<h2>
-📝 Участие в исследовании
-</h2>
-
-<p class="sub">
-
-Перед прохождением теста укажи несколько общих данных.
-Они нужны для статистической части исследования.
-
-</p>
-
-<div class="form-card">
-
-<div class="form-group">
-
-<label>
-Твой город
-</label>
-
-<select id="city">
-
-<option value="">
-Выбери город
-</option>
-
-<option>Тирасполь</option>
-<option>Бендеры</option>
-<option>Днестровск</option>
-<option>Рыбница</option>
-<option>Дубоссары</option>
-<option>Слободзея</option>
-<option>Григориополь</option>
-<option>Каменка</option>
-<option>Другой</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>
-Возраст
-</label>
-
-<input
-id="age"
-type="number"
-min="12"
-max="30"
-placeholder="Например, 16"
->
-
-</div>
-
-<button
-class="btn primary"
-id="startTest"
-onclick="startTest()">
-
-Начать тест →
-
-</button>
-
-</div>
-
-
-<div
-class="test"
-id="quiz"
-style="display:none;margin-top:25px;"
->
-
-<div class="progress">
-
-<div
-class="bar"
-id="bar">
-</div>
-
-</div>
-
-
-<!-- ВОПРОС 1 -->
-
-<div class="q active">
-
-<p>Вопрос 1 из 8</p>
-
-<h3>Что тебе интереснее?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-💻 Компьютеры и технологии
-</button>
-
-<button class="answer" onclick="answer('people')">
-🤝 Общение и помощь людям
-</button>
-
-<button class="answer" onclick="answer('creative')">
-🎨 Творчество и новые идеи
-</button>
-
-<button class="answer" onclick="answer('practical')">
-🔧 Работа руками и конкретный результат
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Не знаю
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-😎 Ничего не делать
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 2 -->
-
-<div class="q">
-
-<p>Вопрос 2 из 8</p>
-
-<h3>Какая задача тебе ближе?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-🔍 Найти ошибку в системе
-</button>
-
-<button class="answer" onclick="answer('people')">
-🗣️ Объяснить человеку сложную вещь
-</button>
-
-<button class="answer" onclick="answer('creative')">
-💡 Придумать идею
-</button>
-
-<button class="answer" onclick="answer('practical')">
-🔨 Починить или собрать что-то
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Понятия не имею
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-🛋️ Лежать на диване
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 3 -->
-
-<div class="q">
-
-<p>Вопрос 3 из 8</p>
-
-<h3>Что важнее в будущей работе?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-🚀 Новые технологии
-</button>
-
-<button class="answer" onclick="answer('people')">
-❤️ Работа с людьми
-</button>
-
-<button class="answer" onclick="answer('creative')">
-✨ Свобода творчества
-</button>
-
-<button class="answer" onclick="answer('practical')">
-⚙️ Практический результат
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Пока не знаю
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-😴 Высыпаться каждый день
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 4 -->
-
-<div class="q">
-
-<p>Вопрос 4 из 8</p>
-
-<h3>Как ты принимаешь решения?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-📊 Анализирую факты
-</button>
-
-<button class="answer" onclick="answer('people')">
-👥 Советуюсь с людьми
-</button>
-
-<button class="answer" onclick="answer('creative')">
-🌟 Доверяю интуиции
-</button>
-
-<button class="answer" onclick="answer('practical')">
-✅ Выбираю практичный вариант
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Решение примет кто-нибудь другой
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-🎮 Играть и не принимать решения
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 5 -->
-
-<div class="q">
-
-<p>Вопрос 5 из 8</p>
-
-<h3>Где тебе комфортнее?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-🖥️ За компьютером
-</button>
-
-<button class="answer" onclick="answer('people')">
-👨‍👩‍👧 В коллективе
-</button>
-
-<button class="answer" onclick="answer('creative')">
-🎨 В творческой среде
-</button>
-
-<button class="answer" onclick="answer('practical')">
-🏗️ На объекте или производстве
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Где угодно, пока не знаю
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-📱 Листать TikTok
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 6 -->
-
-<div class="q">
-
-<p>Вопрос 6 из 8</p>
-
-<h3>Что тебе легче даётся?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-🧠 Логика
-</button>
-
-<button class="answer" onclick="answer('people')">
-💬 Общение
-</button>
-
-<button class="answer" onclick="answer('creative')">
-🎭 Воображение
-</button>
-
-<button class="answer" onclick="answer('practical')">
-🛠️ Практические действия
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Сложно сказать
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-🍕 Есть вкусняшки и отдыхать
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 7 -->
-
-<div class="q">
-
-<p>Вопрос 7 из 8</p>
-
-<h3>Как ты относишься к технологиям?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-🔥 Хочу постоянно изучать
-</button>
-
-<button class="answer" onclick="answer('people')">
-👍 Использую, если помогают людям
-</button>
-
-<button class="answer" onclick="answer('creative')">
-🎨 Использую для творчества
-</button>
-
-<button class="answer" onclick="answer('practical')">
-⚙️ Использую, если упрощают работу
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Пока не определился
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-🌴 Главное — чтобы не приходилось работать
-</button>
-
-</div>
-</div>
-
-
-<!-- ВОПРОС 8 -->
-
-<div class="q">
-
-<p>Вопрос 8 из 8</p>
-
-<h3>Что принесло бы больше удовлетворения?</h3>
-
-<div class="answers">
-
-<button class="answer" onclick="answer('tech')">
-💻 Создать работающую систему
-</button>
-
-<button class="answer" onclick="answer('people')">
-❤️ Понять, что я кому-то помог
-</button>
-
-<button class="answer" onclick="answer('creative')">
-🎨 Воплотить свою идею
-</button>
-
-<button class="answer" onclick="answer('practical')">
-🔧 Сделать вещь, которая работает
-</button>
-
-<button class="answer" onclick="answer('unknown')">
-🤷 Не знаю
-</button>
-
-<button class="answer" onclick="answer('lazy')">
-💸 Стать богатым и не работать
-</button>
-
-</div>
-</div>
-
-
-<!-- ИССЛЕДОВАТЕЛЬСКАЯ АНКЕТА -->
-
-<div id="researchQuestions" style="display:none;">
-
-<h2 style="margin-top:35px;">
-📋 Небольшая анкета
-</h2>
-
-<p style="color:#697080;">
-Эти ответы используются только в обобщённой статистике исследования.
-</p>
-
-
-<div class="form-group">
-
-<label>
-1. Что для тебя главное при выборе профессии?
-</label>
-
-<select id="mainFactor">
-
-<option value="">Выбери вариант</option>
-<option>Высокая зарплата</option>
-<option>Интерес к работе</option>
-<option>Стабильность</option>
-<option>Престиж профессии</option>
-<option>Возможность работать удалённо</option>
-<option>Карьерный рост</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-2. Где ты хотел(а) бы работать?
-</label>
-
-<select id="workPlace">
-
-<option value="">Выбери вариант</option>
-<option>В ПМР</option>
-<option>В другой стране</option>
-<option>Удалённо на зарубежную компанию</option>
-<option>Пока не знаю</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-3. Планируешь ли ты получать высшее образование?
-</label>
-
-<select id="higherEducation">
-
-<option value="">Выбери вариант</option>
-<option>Да</option>
-<option>Нет</option>
-<option>Пока не знаю</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-4. Насколько ты считаешь профессии в ПМР перспективными?
-</label>
-
-<select id="pmrPerspective">
-
-<option value="">Выбери вариант</option>
-<option>Очень перспективными</option>
-<option>Скорее перспективными</option>
-<option>Скорее неперспективными</option>
-<option>Совсем неперспективными</option>
-<option>Не знаю</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-5. Что сильнее всего влияет на твой выбор профессии?
-</label>
-
-<select id="influence">
-
-<option value="">Выбери вариант</option>
-<option>Мои собственные интересы</option>
-<option>Родители</option>
-<option>Друзья</option>
-<option>Уровень зарплаты</option>
-<option>Востребованность профессии</option>
-<option>Социальные сети и интернет</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-6. Насколько ты уже определился(ась) с будущей профессией?
-</label>
-
-<select id="careerCertainty">
-
-<option value="">Выбери вариант</option>
-<option>Уже определился(ась)</option>
-<option>Примерно знаю направление</option>
-<option>Пока выбираю</option>
-<option>Совсем не знаю</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-7. Что больше всего мешает тебе определиться с профессией?
-</label>
-
-<select id="careerProblem">
-
-<option value="">Выбери вариант</option>
-<option>Не знаю свои способности</option>
-<option>Слишком много вариантов</option>
-<option>Не знаю, какие профессии востребованы</option>
-<option>Не уверен(а), что смогу найти работу в ПМР</option>
-<option>Родители советуют другое</option>
-<option>Не хватает информации об учебных заведениях</option>
-<option>Пока не задумывался(ась)</option>
-<option>Ничего не мешает</option>
-
-</select>
-
-</div>
-
-
-<button
-class="btn primary"
-onclick="finishResearch()">
-
-Завершить исследование →
-
-</button>
-
-</div>
-
-
-<div
-class="result"
-id="result">
-</div>
-
-</div>
-
-</section>
-
-
-<section id="prof">
-
-<h2>
-🇵🇲 Профессиональные направления
-</h2>
-
-<p class="sub">
-Примеры направлений для выбора образования и карьеры.
-</p>
-
-
+</div></section>
+
+<section id="prof"><div class="w">
+<h2>Профессиональные направления</h2>
+<p class="sub">Примеры профессий по четырём направлениям теста и по рынку труда ПМР.</p>
 <div class="grid">
-
-
-<div class="card">
-
-<div class="icon">💻</div>
-
-<h3>IT и технологии</h3>
-
-<p>
-Программист, разработчик, системный администратор,
-IT-поддержка, аналитик.
-</p>
-
+<div class="card"><div class="ico">💻</div><h3>IT и технологии</h3><p>Программист, разработчик, системный администратор, IT-поддержка, аналитик.</p></div>
+<div class="card"><div class="ico">🤝</div><h3>Работа с людьми</h3><p>Педагог, медицинский специалист, менеджер, специалист по работе с клиентами, оператор колл-центра.</p></div>
+<div class="card"><div class="ico">🎨</div><h3>Творчество</h3><p>Дизайнер, маркетолог, специалист по рекламе, контент-специалист, работник сферы искусства.</p></div>
+<div class="card"><div class="ico">🔧</div><h3>Техника и рабочие профессии</h3><p>Инженер, электрик, механик, строитель, энергетик, специалист производства.</p></div>
 </div>
+<div class="tw card" style="margin-top:16px;padding:8px"><table>
+<tr><th>Направление</th><th>Почему перспективно</th><th>Что развивать</th></tr>
+<tr><td>IT и цифровизация</td><td>Технологии используются во многих сферах</td><td>Логика, программирование, цифровая грамотность</td></tr>
+<tr><td>Инженерия и автоматизация</td><td>Производству нужны технические специалисты</td><td>Математика, физика, техника</td></tr>
+<tr><td>Медицина и образование</td><td>Постоянная потребность общества</td><td>Знания, ответственность, коммуникация</td></tr>
+<tr><td>Рабочие профессии</td><td>Практические навыки остаются востребованными</td><td>Профессиональная подготовка и современные технологии</td></tr>
+<tr><td>Клиентский сервис и колл-центры</td><td>Есть офисные и удалённые вакансии, часто с обучением</td><td>Общение, продажи, цифровые инструменты</td></tr>
+</table></div>
+</div></section>
 
+<section id="edu"><div class="w">
+<h2>Куда поступать</h2>
+<p class="sub">Вузы, техникумы и колледжи ПМР: на кого можно учиться, адреса, телефоны и сайты. Выбери город, тип или направление. Нажми на карточку, чтобы увидеть подробности.</p>
+<div class="lab">Город</div><div class="chips" id="fc"></div>
+<div class="lab">Тип</div><div class="chips" id="ft"></div>
+<div class="lab">Направление</div><div class="chips" id="fk"></div>
+<div class="grid" id="eduBox" style="grid-template-columns:repeat(auto-fill,minmax(310px,1fr))"></div>
+<div class="warn"><b>Проверь перед поступлением.</b> Адреса и телефоны взяты с официальных сайтов Министерства просвещения ПМР и ПГУ, перечни специальностей подтверждены не для всех организаций. Правила приёма и перечень специальностей меняются каждый год, уточняй их в приёмной комиссии.</div>
+</div></section>
 
-<div class="card">
-
-<div class="icon">🤝</div>
-
-<h3>Работа с людьми</h3>
-
-<p>
-Педагог, медицинский специалист, менеджер,
-специалист по работе с клиентами,
-оператор колл-центра.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🎨</div>
-
-<h3>Творчество</h3>
-
-<p>
-Дизайнер, маркетолог, специалист по рекламе,
-контент-специалист, работник сферы искусства.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">⚙️</div>
-
-<h3>Инженерия</h3>
-
-<p>
-Инженер, энергетик, электрик,
-специалист по автоматизации
-и техническому обслуживанию.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🏗️</div>
-
-<h3>Строительство</h3>
-
-<p>
-Строитель, мастер, электромонтажник
-и другие квалифицированные специалисты.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">📚</div>
-
-<h3>Образование</h3>
-
-<p>
-Учителя, воспитатели и специалисты,
-работающие с детьми и молодежью.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section id="edu">
-
-<h2>
-🎓 Образование в ПМР
-</h2>
-
-<p class="sub">
-
-Примеры учебных организаций.
-Перед поступлением проверяй актуальные
-программы и правила приёма.
-
-</p>
-
-
+<section><div class="w">
+<h2>Колл-центр и современные форматы работы</h2>
+<p class="sub">Рынок труда включает и традиционные, и цифровые формы занятости.</p>
 <div class="grid">
-
-
-<div class="card school">
-
-<h3>
-ПГУ им. Т. Г. Шевченко
-</h3>
-
-<small>Тирасполь</small>
-
-<p>
-IT, инженерия, экономика, педагогика,
-психология, медицина, естественные науки,
-право и другие направления.
-</p>
-
+<div class="card"><div class="ico">☎️</div><h3>Колл-центр</h3><p>Развивает общение, клиентский сервис и навыки продаж. Часто это первый опыт работы.</p></div>
+<div class="card"><div class="ico">🏠</div><h3>Удалённая работа</h3><p>Позволяет работать с проектами и клиентами из других регионов, находясь в ПМР.</p></div>
+<div class="card"><div class="ico">📈</div><h3>Цифровые навыки</h3><p>Компьютерная грамотность, работа с данными и сервисами полезны почти в любой профессии.</p></div>
 </div>
+</div></section>
 
-
-<div class="card school">
-
-<h3>
-Приднестровский государственный институт искусств
-</h3>
-
-<small>Тирасполь</small>
-
-<p>
-Творческие и художественные профессиональные направления.
-</p>
-
-</div>
-
-
-<div class="card school">
-
-<h3>
-Тираспольский юридический институт МВД
-</h3>
-
-<small>Тирасполь</small>
-
-<p>
-Юридическая и правоохранительная сфера.
-</p>
-
-</div>
-
-
-<div class="card school">
-
-<h3>
-Военный институт Министерства обороны ПМР
-</h3>
-
-<small>Тирасполь</small>
-
-<p>
-Военная служба и соответствующая профессиональная подготовка.
-</p>
-
-</div>
-
-
-<div class="card school">
-
-<h3>
-Тираспольский техникум информатики и права
-</h3>
-
-<small>Тирасполь</small>
-
-<p>
-Информатика, цифровые технологии
-и правовые направления СПО.
-</p>
-
-</div>
-
-
-<div class="card school">
-
-<h3>
-Днестровский техникум энергетики
-и компьютерных технологий
-</h3>
-
-<small>Днестровск</small>
-
-<p>
-Энергетика, техника и компьютерные технологии.
-</p>
-
-</div>
-
-
-<div class="card school">
-
-<h3>
-Бендерский педагогический колледж
-</h3>
-
-<small>Бендеры</small>
-
-<p>
-Педагогика и работа с детьми.
-</p>
-
-</div>
-
-
-<div class="card school">
-
-<h3>
-Бендерский высший художественный колледж
-</h3>
-
-<small>Бендеры</small>
-
-<p>
-Художественные и творческие направления.
-</p>
-
-</div>
-
-
-</div>
-
-
-<div class="note">
-
-<b>Важно:</b>
-
-список образовательных организаций
-и программы приёма могут изменяться.
-Перед поступлением проверяй актуальную информацию.
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>
-☎️ Колл-центр и современный формат работы
-</h2>
-
-<p class="sub">
-
-Современный рынок труда включает как традиционные,
-так и цифровые форматы занятости.
-
-</p>
-
-
+<section id="statistics"><div class="w">
+<h2>Статистика исследования</h2>
+<p class="sub">Результаты участников профориентационного исследования молодёжи Приднестровья.</p>
 <div class="grid">
-
-
-<div class="card">
-
-<div class="icon">☎️</div>
-
-<h3>Колл-центр</h3>
-
-<p>
-
-Работа оператором колл-центра развивает
-коммуникацию, клиентский сервис и навыки продаж.
-Для молодежи это может стать одним из вариантов
-получения первого опыта работы.
-
-</p>
-
+<div class="card"><h3>Участников</h3><div class="big" id="participants">—</div></div>
+<div class="card"><h3>Самое популярное направление</h3><div id="popular" style="font-weight:700;margin-top:10px">—</div></div>
+<div class="card"><h3>Городов</h3><div class="big" id="citiesCount">—</div></div>
 </div>
-
-
-<div class="card">
-
-<div class="icon">🏠</div>
-
-<h3>Удалённая работа</h3>
-
-<p>
-
-Позволяет работать с проектами и клиентами
-из других регионов, находясь в ПМР.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">📈</div>
-
-<h3>Цифровые навыки</h3>
-
-<p>
-
-Компьютерная грамотность, работа с данными
-и цифровыми сервисами полезны во многих профессиях.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>
-🔮 Перспективные направления
-</h2>
-
-
-<div class="table">
-
-<table>
-
-<tr>
-
-<th>Направление</th>
-
-<th>Почему перспективно</th>
-
-<th>Что развивать</th>
-
-</tr>
-
-
-<tr>
-
-<td>IT и цифровизация</td>
-
-<td>Технологии используются во многих сферах</td>
-
-<td>
-Логика, программирование,
-цифровая грамотность
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>Инженерия и автоматизация</td>
-
-<td>Производству нужны технические специалисты</td>
-
-<td>
-Математика, физика, техника
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>Медицина</td>
-
-<td>Обществу постоянно нужны медицинские специалисты</td>
-
-<td>
-Биология, ответственность,
-коммуникация
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>Образование</td>
-
-<td>Необходимость подготовки новых поколений</td>
-
-<td>
-Знания, коммуникация,
-цифровые инструменты
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>Квалифицированные рабочие профессии</td>
-
-<td>Практические навыки остаются востребованными</td>
-
-<td>
-Профессиональная подготовка
-и современные технологии
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
-
-<section id="statistics">
-
-<h2>
-📊 Статистика исследования
-</h2>
-
-<p class="sub">
-Результаты участников профориентационного исследования
-молодежи Приднестровья.
-</p>
-
-
-<div class="grid">
-
-<div class="card">
-
-<div class="icon">👥</div>
-
-<h3>Участников</h3>
-
-<div
-id="participants"
-style="font-size:42px;font-weight:800;color:#5b5ce2;">
-—
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🏆</div>
-
-<h3>Самое популярное направление</h3>
-
-<div
-id="popular"
-style="font-size:20px;font-weight:800;">
-—
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🏙️</div>
-
-<h3>Городов</h3>
-
-<div
-id="citiesCount"
-style="font-size:42px;font-weight:800;color:#5b5ce2;">
-—
-</div>
-
-</div>
-
-</div>
-
-
-<div
-class="form-card"
-style="margin-top:20px;">
-
-<h3>
-Профессиональные направления
-</h3>
-
-
-<div class="percent-row">
-
-<div class="percent-top">
-
-<span>💻 IT и технологии</span>
-
-<span id="statTech">—</span>
-
-</div>
-
-<div class="track">
-
-<div
-class="fill"
-id="fillTech"
-style="width:0%">
-</div>
-
-</div>
-
-</div>
-
-
-<div class="percent-row">
-
-<div class="percent-top">
-
-<span>🤝 Работа с людьми</span>
-
-<span id="statPeople">—</span>
-
-</div>
-
-<div class="track">
-
-<div
-class="fill"
-id="fillPeople"
-style="width:0%">
-</div>
-
-</div>
-
-</div>
-
-
-<div class="percent-row">
-
-<div class="percent-top">
-
-<span>🎨 Творческие направления</span>
-
-<span id="statCreative">—</span>
-
-</div>
-
-<div class="track">
-
-<div
-class="fill"
-id="fillCreative"
-style="width:0%">
-</div>
-
-</div>
-
-</div>
-
-
-<div class="percent-row">
-
-<div class="percent-top">
-
-<span>🔧 Технические профессии</span>
-
-<span id="statPractical">—</span>
-
-</div>
-
-<div class="track">
-
-<div
-class="fill"
-id="fillPractical"
-style="width:0%">
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="form-card">
-
-<h3>
-🏙️ Участники по городам
-</h3>
-
-<div id="cityStats">
-Загрузка статистики...
-</div>
-
-</div>
-
-
-<div class="note">
-
-<b>Обновление:</b>
-
-статистика формируется автоматически
-на основе ответов участников исследования.
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>
-📊 Практическая часть исследования
-</h2>
-
-<p class="sub">
-
-Результаты прохождения теста автоматически
-сохраняются в базе исследования.
-
-</p>
-
-
-<div class="note">
-
-<b>Как работает исследование:</b>
-
-<br><br>
-
-Участник указывает город и возраст →
-проходит профориентационный тест →
-отвечает на исследовательскую анкету →
-получает индивидуальный результат →
-данные автоматически попадают в Google Таблицу.
-
-<br><br>
-
-После накопления ответов данные можно использовать
-для построения диаграмм и анализа профессиональных
-предпочтений молодежи ПМР.
-
-</div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-PROF-ПМР · Профориентационный навигатор ·
-Исследовательский проект 2026
-
-</footer>
-
+<div class="card" style="margin-top:14px"><h3 style="margin-bottom:6px">Профессиональные направления</h3><div id="dirStats"></div></div>
+<div class="card" style="margin-top:14px"><h3 style="margin-bottom:6px">Участники по городам</h3><div id="cityStats">Загрузка статистики...</div></div>
+<div class="note">Статистика формируется автоматически на основе ответов участников исследования.</div>
+</div></section>
+
+<footer><div class="w">PROF-ПМР · Профориентационный навигатор · Исследовательский проект 2026</div></footer>
 
 <script>
-
-/* ==========================================
-   GOOGLE APPS SCRIPT
-========================================== */
-
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzRqWCt51WLS5ptxfJFDtZQJ_J4qAR0fkAauCj641M7fZJLG6LQc6cnRQDmCxe4Hdom/exec";
-
-const STATISTICS_URL = SCRIPT_URL;
-
-
-/* ==========================================
-   ЭЛЕМЕНТЫ
-========================================== */
-
-const questions = document.querySelectorAll(".q");
-
-const bar = document.getElementById("bar");
-
-const result = document.getElementById("result");
-
-
-/* ==========================================
-   ПЕРЕМЕННЫЕ
-========================================== */
-
-let current = 0;
-
-let scores = {
-
-    tech: 0,
-
-    people: 0,
-
-    creative: 0,
-
-    practical: 0,
-
-    unknown: 0,
-
-    lazy: 0
-
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzRqWCt51WLS5ptxfJFDtZQJ_J4qAR0fkAauCj641M7fZJLG6LQc6cnRQDmCxe4Hdom/exec";
+const STATISTICS_URL=SCRIPT_URL;
+const $=id=>document.getElementById(id);
+const KEYS=["tech","people","creative","practical"];
+const info={
+tech:{name:"💻 Технологии и IT",jobs:["Программист","Разработчик","Системный администратор","IT-специалист","Аналитик"]},
+people:{name:"🤝 Работа с людьми",jobs:["Педагог","Медицинский специалист","Менеджер","Специалист клиентского сервиса","Оператор колл-центра"]},
+creative:{name:"🎨 Творческие направления",jobs:["Дизайнер","Маркетолог","Специалист по рекламе","Контент-специалист","Работник сферы искусства"]},
+practical:{name:"🔧 Технические и рабочие профессии",jobs:["Инженер","Электрик","Механик","Строитель","Специалист производства"]}
 };
-
-
-let participant = {
-
-    city: "",
-
-    age: "",
-
-    mainFactor: "",
-
-    workPlace: "",
-
-    higherEducation: "",
-
-    pmrPerspective: "",
-
-    influence: "",
-
-    careerCertainty: "",
-
-    careerProblem: ""
-
-};
-
-
-/* ==========================================
-   ИНФОРМАЦИЯ О НАПРАВЛЕНИЯХ
-========================================== */
-
-const info = {
-
-tech: {
-
-name: "💻 Технологии и IT",
-
-jobs: [
-
-"Программист",
-
-"Разработчик",
-
-"Системный администратор",
-
-"IT-специалист",
-
-"Аналитик"
-
-],
-
-edu:
-
-"ПГУ им. Т. Г. Шевченко; Тираспольский техникум информатики и права; Днестровский техникум энергетики и компьютерных технологий."
-
-},
-
-
-people: {
-
-name: "🤝 Работа с людьми",
-
-jobs: [
-
-"Педагог",
-
-"Медицинский специалист",
-
-"Менеджер",
-
-"Специалист клиентского сервиса",
-
-"Оператор колл-центра"
-
-],
-
-edu:
-
-"ПГУ им. Т. Г. Шевченко; Бендерский педагогический колледж."
-
-},
-
-
-creative: {
-
-name: "🎨 Творческие направления",
-
-jobs: [
-
-"Дизайнер",
-
-"Маркетолог",
-
-"Специалист по рекламе",
-
-"Контент-специалист",
-
-"Работник сферы искусства"
-
-],
-
-edu:
-
-"Приднестровский государственный институт искусств; Бендерский высший художественный колледж."
-
-},
-
-
-practical: {
-
-name: "🔧 Технические и рабочие профессии",
-
-jobs: [
-
-"Инженер",
-
-"Электрик",
-
-"Механик",
-
-"Строитель",
-
-"Специалист производства"
-
-],
-
-edu:
-
-"ПГУ им. Т. Г. Шевченко; Днестровский техникум энергетики и компьютерных технологий."
-
+/* порядок ответов: tech, people, creative, practical */
+const Q=[
+["Что тебе интереснее?",["💻 Компьютеры и технологии","🤝 Общение и помощь людям","🎨 Творчество и новые идеи","🔧 Работа руками и конкретный результат"]],
+["Какая задача тебе ближе?",["🔍 Найти ошибку в системе","🗣️ Объяснить человеку сложную вещь","💡 Придумать идею","🔨 Починить или собрать что-то"]],
+["Что важнее в будущей работе?",["🚀 Новые технологии","❤️ Работа с людьми","✨ Свобода творчества","⚙️ Практический результат"]],
+["Как ты принимаешь решения?",["📊 Анализирую факты","👥 Советуюсь с людьми","🌟 Доверяю интуиции","✅ Выбираю практичный вариант"]],
+["Где тебе комфортнее?",["🖥️ За компьютером","👨‍👩‍👧 В коллективе","🎭 В творческой среде","🏗️ На объекте или производстве"]],
+["Что тебе легче даётся?",["🧠 Логика","💬 Общение","🪄 Воображение","🛠️ Практические действия"]],
+["Как ты относишься к технологиям?",["🔥 Хочу постоянно изучать","👍 Использую, если помогают людям","🎨 Использую для творчества","⚙️ Использую, если упрощают работу"]],
+["Что принесло бы больше удовлетворения?",["💻 Создать работающую систему","❤️ Понять, что я кому-то помог","🌈 Воплотить свою идею","🔩 Сделать вещь, которая работает"]],
+["Какой школьный проект тебе интереснее?",["Сделать сайт или программу","Организовать мероприятие или помощь другим","Оформить плакат, видео или презентацию","Собрать модель или устройство"]],
+["Как ты любишь проводить свободное время?",["Разбираться в гаджетах, играх, программах","Общаться и помогать друзьям","Рисовать, снимать, писать, придумывать","Мастерить, чинить, заниматься техникой"]],
+["Какой навык хочешь развить?",["Программирование и работа с данными","Умение убеждать и работать с людьми","Дизайн и творческое мышление","Работа с оборудованием и инструментами"]],
+["Какая рабочая неделя тебе подходит?",["Сложные задачи за компьютером","Много общения с людьми","Свободный график и творческие задачи","Результат своими руками на объекте"]]
+];
+const R=[
+["mainFactor","1. Что для тебя главное при выборе профессии?",["Высокая зарплата","Интерес к работе","Стабильность","Престиж профессии","Возможность работать удалённо","Карьерный рост"]],
+["workPlace","2. Где ты хотел(а) бы работать?",["В ПМР","В другой стране","Удалённо на зарубежную компанию","Пока не знаю"]],
+["higherEducation","3. Планируешь ли ты получать высшее образование?",["Да","Нет","Пока не знаю"]],
+["pmrPerspective","4. Насколько ты считаешь профессии в ПМР перспективными?",["Очень перспективными","Скорее перспективными","Скорее неперспективными","Совсем неперспективными","Не знаю"]],
+["influence","5. Что сильнее всего влияет на твой выбор профессии?",["Мои собственные интересы","Родители","Друзья","Уровень зарплаты","Востребованность профессии","Социальные сети и интернет"]],
+["careerCertainty","6. Насколько ты уже определился(ась) с будущей профессией?",["Уже определился(ась)","Примерно знаю направление","Пока выбираю","Совсем не знаю"]],
+["careerProblem","7. Что больше всего мешает тебе определиться с профессией?",["Не знаю свои способности","Слишком много вариантов","Не знаю, какие профессии востребованы","Не уверен(а), что смогу найти работу в ПМР","Родители советуют другое","Не хватает информации об учебных заведениях","Пока не задумывался(ась)","Ничего не мешает"]]
+];
+
+/* t: v = вуз, s = техникум/колледж. b = бакалавриат/специалитет, m = магистратура, s = колледж (СПО). Источники: abitur.spsu.ru (2026), minpros.gospmr.org */
+const T={v:"Вуз",s:"Техникум / колледж"};
+const PGU="https://abitur.spsu.ru/napravleniya-podgotovki";
+const EDU=[
+{n:"ПГУ — Физико-технический институт",t:"v",c:"Тирасполь",a:"ул. Восстания, 2а, корпус 8",p:["+373 (533) 8-46-23"],w:PGU,k:["tech","practical"],
+ b:["Прикладная математика и информатика","Информатика и вычислительная техника","Информационные системы и технологии (безопасность информационных систем)","Программная инженерия","Инфокоммуникационные технологии и системы связи","Электроэнергетика и электротехника","Автоматизация технологических процессов и производств","Эксплуатация транспортно-технологических машин и комплексов","Педагогическое образование: физика и математика"],
+ m:["Информационные системы и технологии","Электроэнергетика и электротехника","Эксплуатация транспортно-технологических машин и комплексов"]},
+{n:"ПГУ — Технический колледж им. Ю. А. Гагарина (факультет СПО ФТИ)",t:"s",c:"Тирасполь",a:"ул. Восстания, 2а, корпус 8",p:["+373 (533) 9-30-79"],w:PGU,k:["tech","practical"],
+ s:["Компьютерные системы и комплексы","Электроснабжение (по отраслям)","Эксплуатация и обслуживание электрического и электромеханического оборудования","Техническая эксплуатация и обслуживание роботизированного производства"]},
+{n:"Бендерский политехнический институт ПГУ",t:"v",c:"Бендеры",a:"ул. Бендерского восстания, 7",p:["+373 (552) 6-09-63"],w:"http://www.bpsu.ru",k:["practical","tech","creative"],
+ b:["Архитектура","Строительство (теплогазоснабжение и вентиляция; промышленное и гражданское строительство)","Экономика предприятий и организаций (строительство)","Информационная безопасность автоматизированных систем","Наземные транспортно-технологические средства (автомобильная техника)"],
+ m:["Строительство","Экономика и управление в строительстве"],
+ s:["Строительство и эксплуатация зданий и сооружений","Монтаж и эксплуатация оборудования систем газоснабжения","Конструирование, моделирование и технология изготовления изделий лёгкой промышленности","Информационные системы и программирование","Монтаж и эксплуатация линий электропередачи","Землеустройство","Эксплуатация транспортного электрооборудования и автоматики","Техническое обслуживание и ремонт автотранспортных средств","Экономика и бухгалтерский учёт","Финансы","Повар, кондитер"]},
+{n:"Рыбницкий филиал ПГУ",t:"v",c:"Рыбница",a:"ул. Гагарина, 2",p:["+373 (555) 4-30-09"],w:PGU,k:["tech","practical","creative"],
+ b:["Прикладная информатика","Программная инженерия","Электроэнергетика и электротехника (заочно)","Автоматизация технологических процессов и производств","Менеджмент (финансовый менеджмент)","Педагогическое образование: английский и немецкий языки","Дизайн"],
+ m:["Прикладная информатика","Автоматизация технологических процессов и производств","Педагогическое образование (информационные технологии в образовании)"],
+ s:["Монтаж и техническая эксплуатация автоматизированных систем ЖКХ"]},
+{n:"ПГУ — Экономический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:PGU,k:["people","tech"],
+ b:["Экономика: бухгалтерский учёт, анализ и аудит; внешнеэкономические связи и таможенный консалтинг; экономика и менеджмент; финансы и кредит; налоги и налоговый консалтинг","Менеджмент (управление персоналом)","Бизнес-информатика","Экономическая безопасность"],
+ m:["Экономика","Менеджмент","Финансы и кредит"]},
+{n:"ПГУ — Юридический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:PGU,k:["people"],
+ b:["Правовое обеспечение национальной безопасности (гражданско-правовая, уголовно-правовая, государственно-правовая)","Судебная и прокурорская деятельность"]},
+{n:"ПГУ — Медицинский институт им. Н. В. Склифосовского",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["people"],
+ b:["Лечебное дело (врач-лечебник)","Стоматология (врач-стоматолог)","Фармация (провизор)","Сестринское дело"]},
+{n:"ПГУ — Факультет педагогики и психологии",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["people"],
+ b:["Психология","Педагогическое образование: начальное образование","Психолого-педагогическое образование: дошкольное образование","Специальное (дефектологическое) образование","Педагогика и психология девиантного поведения"],
+ m:["Психология","Педагогическое образование","Психолого-педагогическое образование","Специальное (дефектологическое) образование"]},
+{n:"ПГУ — Факультет физической культуры и спорта",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-32"],w:"http://sport.spsu.ru",k:["people"],
+ b:["Физическая культура: физкультурное образование; спортивная тренировка","Адаптивная физическая культура (физическая реабилитация)"],
+ m:["Спорт","Педагогическое образование","Адаптивная физическая культура"]},
+{n:"ПГУ — Филологический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["people","creative"],
+ b:["Филология (русский, молдавский, украинский язык и литература)","Лингвистика (английский и немецкий языки)","Перевод и переводоведение"],
+ m:["Лингвистика"]},
+{n:"ПГУ — Факультет государственного управления и социально-гуманитарных наук",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 2",p:["+373 (533) 7-95-15"],w:PGU,k:["people","creative"],
+ b:["Государственное и муниципальное управление","Журналистика (мультимедийная)","Реклама и связи с общественностью","Политология (международные отношения)","Социальная работа","Педагогическое образование (музыкальное)","История","Социально-культурная деятельность"],
+ m:["Государственное и муниципальное управление","Медиакоммуникации","Политология","Реклама и связи с общественностью"]},
+{n:"ПГУ — Естественно-географический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["practical","people"],
+ b:["География","Биология (биоэкология)","Техносферная безопасность","Землеустройство и кадастры (заочно)","Туризм","Педагогическое образование: биология, география (заочно)","Фундаментальная и прикладная химия"],
+ m:["Биология (экология)","География","Туризм"]},
+{n:"ПГУ — Аграрно-технологический факультет",t:"v",c:"Тирасполь",a:"ул. 25 Октября, 128, корпус 3",p:["+373 (533) 7-95-21"],w:PGU,k:["practical"],
+ b:["Агрономия","Технология производства и переработки сельскохозяйственной продукции","Ландшафтная архитектура","Технология продукции и организация общественного питания (заочно)","Наземные транспортно-технологические средства (технические средства АПК)","Ветеринария"]},
+{n:"Тираспольский институт сельского хозяйства им. М. В. Фрунзе",t:"v",c:"Тирасполь",a:"пгт Новотираспольский, ул. Советская, 14",p:["+373 (533) 7-01-81"],w:"https://tatk--frunze.ucoz.ru/",k:["practical"],x:"Сельскохозяйственные направления. Перечень специальностей смотри на сайте."},
+{n:"Приднестровский государственный институт искусств",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:["creative"],x:"Творческие и художественные направления. Контакты уточни на официальном сайте или в Министерстве просвещения."},
+{n:"Тираспольский юридический институт МВД",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:[],x:"Юридическая и правоохранительная сфера."},
+{n:"Военный институт Министерства обороны ПМР",t:"v",c:"Тирасполь",a:"",p:[],w:"",k:[],x:"Военная служба и профессиональная подготовка."},
+{n:"Тираспольский техникум коммерции",t:"s",c:"Тирасполь",a:"ул. Ленина, 1/3",p:["+373 (533) 7-41-89","+373 (533) 7-44-37"],w:"https://sites.google.com/view/ttktiras",k:["people","practical"],s:["Повара","Продавцы","Менеджмент","Логистика"]},
+{n:"Тираспольский техникум информатики и права",t:"s",c:"Тирасполь",a:"пр. Магистральный, 5 (район Балка)",p:["+373 (533) 4-44-13","+373 (533) 4-23-95"],w:"https://www.ttiip.ru/",k:["tech","people"],s:["Менеджмент","Системное администрирование"],x:"Также информатика, цифровые технологии и право. Полный перечень смотри на сайте."},
+{n:"Приднестровский колледж технологий и управления",t:"s",c:"Тирасполь",a:"ул. Гвардейская, 11",p:["+373 (533) 7-56-56","+373 (533) 7-00-98"],w:"https://pktu.idknet.com/",k:[],x:"Технологии и управление. Список специальностей смотри на сайте колледжа."},
+{n:"Промышленно-строительный техникум",t:"s",c:"Тирасполь",a:"ул. Христо Ботева, 24",p:["+373 (533) 9-60-07","+373 (533) 9-64-44"],w:"https://pst.idknet.com/",k:["practical"],x:"Промышленные и строительные специальности и рабочие профессии. Перечень смотри на сайте."},
+{n:"Бендерский педагогический колледж",t:"s",c:"Бендеры",a:"ул. П. Морозова, 8",p:["+373 (552) 6-46-80","+373 (552) 6-46-81"],w:"https://pedagogcollege-bendery.ru/",k:["people"],x:"Педагогика и работа с детьми. Перечень специальностей смотри на сайте."},
+{n:"Днестровский техникум энергетики и компьютерных технологий",t:"s",c:"Днестровск",a:"ул. Строителей, 38",p:["+373 (219) 3-50-08"],w:"https://dnestehas.ucoz.ru/",k:["tech","practical"],x:"Энергетика, техника и компьютерные технологии. Перечень специальностей смотри на сайте."},
+{n:"Дубоссарский индустриальный техникум",t:"s",c:"Дубоссары",a:"ул. Энергетиков, 7",p:["+373 (215) 3-47-13"],w:"http://www.ditpmr.ru/",k:["practical"],x:"Индустриальные и технические специальности. Перечень смотри на сайте."},
+{n:"Рыбницкий политехнический техникум",t:"s",c:"Рыбница",a:"ул. Индустриальная, 2",p:["+373 (555) 3-22-71"],w:"https://gourpt.ru/",k:["practical","tech"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
+{n:"Каменский политехнический техникум им. И. С. Солтыса",t:"s",c:"Каменка",a:"ул. Ленина, 52",p:["+373 (216) 2-23-49"],w:"https://kampoliteh.ucoz.ru/",k:["practical"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
+{n:"Слободзейский политехнический техникум",t:"s",c:"Слободзея",a:"ул. Тираспольская, 1Б",p:["+373 (557) 2-41-81","+373 (557) 2-27-72"],w:"https://sptpmr.ru/",k:["practical","tech"],x:"Политехнические и технические специальности. Перечень смотри на сайте."},
+{n:"«Московский» (экономическое направление)",t:"v",c:"",a:"",p:[],w:"",k:["people"],x:"Экономические специальности. Официальное название, адрес и контакты нужно уточнить."},
+{n:"«Южно-Украинский»",t:"v",c:"",a:"",p:[],w:"",k:["people","tech"],b:["Менеджмент","Туризм","Бухгалтер","Прикладная информатика"],x:"Официальное название, адрес и контакты нужно уточнить."}
+];
+function list(a){return "<ul style='margin:6px 0 10px;padding-left:20px'>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>"}
+function spec(e){
+ let h="";
+ if(e.b)h+=`<p><b>На кого можно учиться (бакалавриат, специалитет):</b></p>${list(e.b)}`;
+ if(e.s)h+=`<p><b>Колледж (СПО):</b></p>${list(e.s)}`;
+ if(e.m)h+=`<p><b>Магистратура:</b> ${e.m.join("; ")}.</p>`;
+ if(e.x)h+=`<p>${e.x}</p>`;
+ return h;
 }
 
-};
+let current=0,saved=false,hist=[],eduC="all",eduT="all",eduK="all";
+let scores={tech:0,people:0,creative:0,practical:0};
+let participant={city:"",age:""};
 
-
-/* ==========================================
-   НАЧАЛО ТЕСТА
-========================================== */
-
-function startTest() {
-
-    const city =
-        document.getElementById("city").value;
-
-    const age =
-        document.getElementById("age").value;
-
-
-    if (!city) {
-
-        alert("Пожалуйста, выбери город.");
-
-        return;
-
-    }
-
-
-    if (!age) {
-
-        alert("Пожалуйста, укажи возраст.");
-
-        return;
-
-    }
-
-
-    participant.city = city;
-
-    participant.age = age;
-
-
-    document.querySelector(".form-card").style.display =
-        "none";
-
-
-    document.getElementById("quiz").style.display =
-        "block";
-
-
-    document.getElementById("quiz").scrollIntoView({
-
-        behavior: "smooth"
-
-    });
-
+function startTest(){
+ const city=$("city").value,age=$("age").value;
+ if(!city){alert("Пожалуйста, выбери город.");return}
+ if(!age){alert("Пожалуйста, укажи возраст.");return}
+ participant={city,age};
+ $("startForm").style.display="none";$("quiz").style.display="block";
+ showQ();$("quiz").scrollIntoView({behavior:"smooth"});
+}
+function showQ(){
+ const q=Q[current];
+ $("bar").style.width=(current/Q.length*100)+"%";
+ $("qbox").innerHTML=`<span class="mini" style="color:#a9d9c0">Вопрос ${current+1} из ${Q.length}</span><h3>${q[0]}</h3>`+
+  q[1].map((a,i)=>`<button class="ans" onclick="answer('${KEYS[i]}')">${a}</button>`).join("")+
+  (current>0?`<button class="back" onclick="goBack()">← Назад</button>`:"");
+}
+function answer(k){
+ scores[k]++;hist.push(k);current++;
+ if(current<Q.length){showQ();return}
+ $("bar").style.width="100%";$("qbox").innerHTML="";
+ $("rbox").innerHTML=R.map(r=>`<div class="fg"><label for="${r[0]}">${r[1]}</label><select id="${r[0]}"><option value="">Выбери вариант</option>${r[2].map(o=>`<option>${o}</option>`).join("")}</select></div>`).join("");
+ $("rq").style.display="block";$("rq").scrollIntoView({behavior:"smooth"});
+}
+function goBack(){if(!hist.length)return;scores[hist.pop()]--;current--;showQ()}
+function finishResearch(){
+ for(const r of R){const v=$(r[0]).value;if(!v){alert("Пожалуйста, ответь на все вопросы.");return}participant[r[0]]=v}
+ $("rq").style.display="none";showResult();
+}
+function restart(){
+ current=0;saved=false;hist=[];scores={tech:0,people:0,creative:0,practical:0};
+ participant={city:participant.city,age:participant.age};
+ $("result").classList.remove("show");$("result").innerHTML="";$("rq").style.display="none";
+ showQ();$("quiz").scrollIntoView({behavior:"smooth"});
+}
+const tel=p=>"tel:"+p.replace(/[^\d+]/g,"");
+function showResult(){
+ const total=KEYS.reduce((s,k)=>s+scores[k],0)||1;
+ const order=KEYS.slice().sort((a,b)=>scores[b]-scores[a]);
+ const best=order[0];
+ let h=`<h2 style="font-size:26px">Твой результат</h2><p>Процентное соотношение направлений:</p>`;
+ order.forEach(k=>{const p=Math.round(scores[k]/total*100);
+  h+=`<div class="pr"><div class="pt"><span>${info[k].name}</span><span>${p}%</span></div><div class="tr"><div class="fl" style="width:${p}%"></div></div></div>`});
+ const sc=EDU.filter(e=>e.k.includes(best)&&e.c);
+ h+=`<hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><h3>Тебе больше всего подходит: ${info[best].name}</h3>
+ <p><b>Возможные профессии:</b></p>${info[best].jobs.map(j=>`<span class="tag">${j}</span>`).join("")}
+ <p><b>Подходящие вузы и техникумы:</b></p>`+
+ "<ul>"+sc.map(e=>`<li>${e.n} (${e.c})</li>`).join("")+"</ul>"+
+ `<p class="mini">Результат — ориентир, а не профессиональная диагностика. Адреса и телефоны проверь перед поступлением.</p>
+ <button class="btn o" onclick="setK('${best}');$('edu').scrollIntoView({behavior:'smooth'})">Специальности, адреса и телефоны</button>
+ <button class="btn" id="saveBtn" onclick="saveResult('${best}')">Сохранить результат в исследовании</button>
+ <button class="btn o" onclick="restart()">Пройти заново</button>`;
+ $("result").innerHTML=h;$("result").classList.add("show");
+ $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function saveResult(best){
+ if(saved)return;saved=true;
+ const b=$("saveBtn");b.disabled=true;b.textContent="Результат отправлен";
+ const total=KEYS.reduce((s,k)=>s+scores[k],0)||1,pct=k=>Math.round(scores[k]/total*100);
+ const data={city:participant.city||"",age:participant.age||"",tech:pct("tech"),people:pct("people"),creative:pct("creative"),practical:pct("practical"),mainDirection:info[best].name,lazy:0,unknown:0,
+  mainFactor:participant.mainFactor||"",workPlace:participant.workPlace||"",higherEducation:participant.higherEducation||"",pmrPerspective:participant.pmrPerspective||"",influence:participant.influence||"",careerCertainty:participant.careerCertainty||"",careerProblem:participant.careerProblem||""};
+ fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)});
+ $("result").insertAdjacentHTML("beforeend",`<div class="ok">Результат отправлен. Спасибо за участие в исследовании!</div>`);
 }
 
-
-/* ==========================================
-   ОТВЕТ НА ВОПРОС
-========================================== */
-
-function answer(type) {
-
-    if (!scores.hasOwnProperty(type)) {
-
-        return;
-
-    }
-
-
-    scores[type]++;
-
-
-    questions[current].classList.remove("active");
-
-
-    current++;
-
-
-    if (current < questions.length) {
-
-        questions[current].classList.add("active");
-
-
-        bar.style.width =
-            (current / questions.length * 100) + "%";
-
-    }
-
-    else {
-
-        bar.style.width = "100%";
-
-
-        document.getElementById("researchQuestions").style.display =
-            "block";
-
-
-        document.getElementById("researchQuestions").scrollIntoView({
-
-            behavior: "smooth"
-
-        });
-
-    }
-
+/* ---------- куда поступать ---------- */
+function setK(k){eduK=k;eduC="all";eduT="all";drawEdu()}
+function chips(id,items,cur,attr){
+ $(id).innerHTML=items.map(i=>`<button class="chip${cur===i[0]?" on":""}" data-${attr}="${i[0]}">${i[1]}</button>`).join("");
 }
-
-
-/* ==========================================
-   ЗАВЕРШЕНИЕ ИССЛЕДОВАТЕЛЬСКОЙ АНКЕТЫ
-========================================== */
-
-function finishResearch() {
-
-    const mainFactor =
-        document.getElementById("mainFactor").value;
-
-    const workPlace =
-        document.getElementById("workPlace").value;
-
-    const higherEducation =
-        document.getElementById("higherEducation").value;
-
-    const pmrPerspective =
-        document.getElementById("pmrPerspective").value;
-
-    const influence =
-        document.getElementById("influence").value;
-
-    const careerCertainty =
-        document.getElementById("careerCertainty").value;
-
-    const careerProblem =
-        document.getElementById("careerProblem").value;
-
-
-    if (
-        !mainFactor ||
-        !workPlace ||
-        !higherEducation ||
-        !pmrPerspective ||
-        !influence ||
-        !careerCertainty ||
-        !careerProblem
-    ) {
-
-        alert("Пожалуйста, ответь на все вопросы.");
-
-        return;
-
-    }
-
-
-    participant.mainFactor = mainFactor;
-
-    participant.workPlace = workPlace;
-
-    participant.higherEducation = higherEducation;
-
-    participant.pmrPerspective = pmrPerspective;
-
-    participant.influence = influence;
-
-    participant.careerCertainty = careerCertainty;
-
-    participant.careerProblem = careerProblem;
-
-
-    showResult();
-
+function drawEdu(){
+ const cities=["all"].concat([...new Set(EDU.map(e=>e.c).filter(Boolean))]);
+ chips("fc",cities.map(c=>[c,c==="all"?"Все города":c]),eduC,"c");
+ chips("ft",[["all","Все"],["v","Вузы"],["s","Техникумы и колледжи"]],eduT,"t");
+ chips("fk",[["all","Все направления"]].concat(KEYS.map(k=>[k,info[k].name])),eduK,"k");
+ const l=EDU.filter(e=>(eduC==="all"||e.c===eduC)&&(eduT==="all"||e.t===eduT)&&(eduK==="all"||e.k.includes(eduK)));
+ $("eduBox").innerHTML=l.length?l.map(e=>`<details class="card"><summary><span class="bd">${T[e.t]}</span><h3>${e.n}</h3><small>${e.c||"контакты уточняются"}${e.p[0]?" · "+e.p[0]:""}</small></summary><div class="det">
+ ${spec(e)}
+ ${e.a?`<p><b>Адрес:</b> ${e.c}, ${e.a}</p>`:""}
+ ${e.p.length?`<p><b>Телефоны:</b> `+e.p.map(p=>`<a href="${tel(p)}">${p}</a>`).join(", ")+`</p>`:`<p><b>Телефон:</b> уточни на сайте учебного заведения</p>`}
+ ${e.w?`<p><a href="${e.w}" target="_blank" rel="noopener">Сайт и правила приёма</a></p>`:""}</div></details>`).join(""):`<p class="sub">По этим фильтрам ничего не найдено. Сбрось один из фильтров.</p>`;
 }
-
-
-/* ==========================================
-   ПОКАЗ РЕЗУЛЬТАТА
-========================================== */
-
-function showResult() {
-
-    const mainScores = {
-
-        tech: scores.tech,
-
-        people: scores.people,
-
-        creative: scores.creative,
-
-        practical: scores.practical
-
-    };
-
-
-    const mainTotal =
-
-        mainScores.tech +
-
-        mainScores.people +
-
-        mainScores.creative +
-
-        mainScores.practical;
-
-
-    /* ======================================
-       ШУТОЧНЫЙ РЕЗУЛЬТАТ
-    ====================================== */
-
-    if (scores.lazy >= 5) {
-
-        result.innerHTML = `
-
-        <div class="lazy-result">
-
-            <div class="lazy-emoji">😎</div>
-
-            <h2>
-            Профессиональный отдыхающий
-            </h2>
-
-            <p>
-            Кажется, твоя идеальная работа —
-            это отсутствие работы 😂
-            </p>
-
-            <p>
-            Но если серьёзно, возможно,
-            ты ещё не нашёл направление,
-            которое действительно тебя заинтересует.
-            </p>
-
-            <p>
-            <b>
-            Количество шуточных ответов:
-            ${scores.lazy} из 8
-            </b>
-            </p>
-
-        </div>
-
-        <hr>
-
-        <p>
-        Даже такой результат учитывается
-        в исследовании как отдельная категория.
-        </p>
-
-        <button
-        class="btn primary"
-        onclick="saveResult('lazy')">
-
-        Сохранить результат в исследовании
-
-        </button>
-
-        `;
-
-
-        result.classList.add("show");
-
-
-        result.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "nearest"
-
-        });
-
-
-        return;
-
-    }
-
-
-    /* ======================================
-       ЕСЛИ ЧЕЛОВЕК НЕ ОПРЕДЕЛИЛСЯ
-    ====================================== */
-
-    if (
-        mainTotal === 0 ||
-        scores.unknown >= 5
-    ) {
-
-        result.innerHTML = `
-
-        <div class="lazy-result">
-
-            <div class="lazy-emoji">🤷</div>
-
-            <h2>
-            Пока сложно определить направление
-            </h2>
-
-            <p>
-            Ты пока не выделил(а) одно профессиональное
-            направление. Это нормально — выбор профессии
-            не обязательно должен быть сделан сразу.
-            </p>
-
-            <p>
-            Попробуй узнать больше о разных профессиях,
-            своих интересах и учебных направлениях.
-            </p>
-
-        </div>
-
-        <button
-        class="btn primary"
-        onclick="saveResult('unknown')">
-
-        Сохранить результат в исследовании
-
-        </button>
-
-        `;
-
-
-        result.classList.add("show");
-
-
-        result.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "nearest"
-
-        });
-
-
-        return;
-
-    }
-
-
-    /* ======================================
-       ОСНОВНОЙ РЕЗУЛЬТАТ
-    ====================================== */
-
-    const order =
-
-        Object.keys(mainScores).sort(
-
-            (a,b) => mainScores[b] - mainScores[a]
-
-        );
-
-
-    let html = `
-
-    <h2>
-    🎉 Твой результат
-    </h2>
-
-    <p>
-    Процентное соотношение профессиональных направлений:
-    </p>
-
-    `;
-
-
-    order.forEach(key => {
-
-        const percent =
-
-            Math.round(
-
-                mainScores[key] /
-                mainTotal *
-                100
-
-            );
-
-
-        html += `
-
-        <div class="percent-row">
-
-            <div class="percent-top">
-
-                <span>
-                ${info[key].name}
-                </span>
-
-                <span>
-                ${percent}%
-                </span>
-
-            </div>
-
-            <div class="track">
-
-                <div
-                class="fill"
-                style="width:${percent}%">
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-
-    const best = order[0];
-
-
-    html += `
-
-    <hr>
-
-    <h3>
-
-    🏆 Тебе больше всего подходит:
-
-    ${info[best].name}
-
-    </h3>
-
-
-    <p>
-    <b>Возможные профессии:</b>
-    </p>
-
-
-    ${info[best].jobs.map(
-
-        job =>
-
-        `<span class="tag">${job}</span>`
-
-    ).join("")}
-
-
-    <p>
-
-    <b>Где можно учиться:</b>
-
-    <br>
-
-    ${info[best].edu}
-
-    </p>
-
-
-    <p style="color:#697080;font-size:14px">
-
-    Результат является ориентиром,
-    а не профессиональной диагностикой.
-
-    </p>
-
-
-    <button
-    class="btn primary"
-    onclick="saveResult('${best}')">
-
-    Сохранить результат в исследовании
-
-    </button>
-
-    `;
-
-
-    result.innerHTML = html;
-
-
-    result.classList.add("show");
-
-
-    result.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "nearest"
-
-    });
-
+document.addEventListener("click",e=>{
+ const d=e.target.dataset;if(!d)return;
+ if(d.c!==undefined){eduC=d.c;drawEdu()}
+ if(d.t!==undefined){eduT=d.t;drawEdu()}
+ if(d.k!==undefined){eduK=d.k;drawEdu()}
+});
+drawEdu();
+
+/* ---------- статистика ---------- */
+async function loadStatistics(){
+ try{
+  const r=await fetch(STATISTICS_URL);if(!r.ok)throw new Error("HTTP "+r.status);
+  const d=await r.json();
+  $("participants").textContent=d.participants??0;
+  $("dirStats").innerHTML=KEYS.map(k=>{const v=Number(d[k])||0;return `<div class="pr"><div class="pt"><span>${info[k].name}</span><span>${v}%</span></div><div class="tr"><div class="fl" style="width:${v}%"></div></div></div>`}).join("");
+  const top=KEYS.slice().sort((a,b)=>(Number(d[b])||0)-(Number(d[a])||0))[0];
+  $("popular").textContent=(Number(d[top])||0)>0?info[top].name+" — "+d[top]+"%":"Пока нет данных";
+  const c=d.cities||{},names=Object.keys(c).sort((a,b)=>c[b]-c[a]);
+  $("citiesCount").textContent=names.length;
+  $("cityStats").innerHTML=names.map(n=>{const p=d.participants?Math.round(c[n]/d.participants*100):0;return `<div class="pr"><div class="pt"><span>${n}</span><span>${c[n]}</span></div><div class="tr"><div class="fl" style="width:${p}%"></div></div></div>`}).join("")||"Пока нет данных.";
+ }catch(e){
+  console.log("Ошибка загрузки статистики:",e);
+  $("popular").textContent="Статистика пока недоступна";$("cityStats").textContent="Не удалось загрузить статистику.";
+ }
 }
-
-
-/* ==========================================
-   СОХРАНЕНИЕ РЕЗУЛЬТАТА
-========================================== */
-
-function saveResult(best) {
-
-    const mainTotal =
-
-        scores.tech +
-
-        scores.people +
-
-        scores.creative +
-
-        scores.practical;
-
-
-    const safeTotal =
-        mainTotal > 0 ? mainTotal : 1;
-
-
-    let mainDirection = "";
-
-
-    if (best === "lazy") {
-
-        mainDirection =
-            "😎 Ничего не делать";
-
-    }
-
-    else if (best === "unknown") {
-
-        mainDirection =
-            "🤷 Не определился";
-
-    }
-
-    else {
-
-        mainDirection =
-            info[best].name;
-
-    }
-
-
-    const data = {
-
-        city: participant.city || "",
-
-        age: participant.age || "",
-
-
-        tech:
-            Math.round(
-                scores.tech /
-                safeTotal *
-                100
-            ),
-
-
-        people:
-            Math.round(
-                scores.people /
-                safeTotal *
-                100
-            ),
-
-
-        creative:
-            Math.round(
-                scores.creative /
-                safeTotal *
-                100
-            ),
-
-
-        practical:
-            Math.round(
-                scores.practical /
-                safeTotal *
-                100
-            ),
-
-
-        mainDirection:
-            mainDirection,
-
-
-        lazy:
-            scores.lazy || 0,
-
-
-        unknown:
-            scores.unknown || 0,
-
-
-        mainFactor:
-            participant.mainFactor || "",
-
-
-        workPlace:
-            participant.workPlace || "",
-
-
-        higherEducation:
-            participant.higherEducation || "",
-
-
-        pmrPerspective:
-            participant.pmrPerspective || "",
-
-
-        influence:
-            participant.influence || "",
-
-
-        careerCertainty:
-            participant.careerCertainty || "",
-
-
-        careerProblem:
-            participant.careerProblem || ""
-
-    };
-
-
-    fetch(SCRIPT_URL, {
-
-        method: "POST",
-
-        mode: "no-cors",
-
-        headers: {
-
-            "Content-Type":
-            "text/plain;charset=utf-8"
-
-        },
-
-        body:
-            JSON.stringify(data)
-
-    });
-
-
-    result.innerHTML += `
-
-    <div class="success">
-
-    ✅ Результат сохранён.
-    Спасибо за участие в исследовании!
-
-    </div>
-
-    `;
-
-}
-
-
-/* ==========================================
-   СТАТИСТИКА
-========================================== */
-
-async function loadStatistics() {
-
-    try {
-
-        const response =
-            await fetch(STATISTICS_URL);
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Ошибка HTTP: " +
-                response.status
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        document.getElementById("participants")
-            .textContent =
-            data.participants ?? 0;
-
-
-        document.getElementById("statTech")
-            .textContent =
-            (data.tech ?? 0) + "%";
-
-
-        document.getElementById("statPeople")
-            .textContent =
-            (data.people ?? 0) + "%";
-
-
-        document.getElementById("statCreative")
-            .textContent =
-            (data.creative ?? 0) + "%";
-
-
-        document.getElementById("statPractical")
-            .textContent =
-            (data.practical ?? 0) + "%";
-
-
-        document.getElementById("fillTech")
-            .style.width =
-            (data.tech ?? 0) + "%";
-
-
-        document.getElementById("fillPeople")
-            .style.width =
-            (data.people ?? 0) + "%";
-
-
-        document.getElementById("fillCreative")
-            .style.width =
-            (data.creative ?? 0) + "%";
-
-
-        document.getElementById("fillPractical")
-            .style.width =
-            (data.practical ?? 0) + "%";
-
-
-        const directions = {
-
-            tech: {
-                name: "💻 IT и технологии",
-                value: Number(data.tech) || 0
-            },
-
-            people: {
-                name: "🤝 Работа с людьми",
-                value: Number(data.people) || 0
-            },
-
-            creative: {
-                name: "🎨 Творческие направления",
-                value: Number(data.creative) || 0
-            },
-
-            practical: {
-                name: "🔧 Технические профессии",
-                value: Number(data.practical) || 0
-            }
-
-        };
-
-
-        const popular =
-
-            Object.values(directions)
-
-            .sort(
-                (a,b) =>
-                b.value - a.value
-            )[0];
-
-
-        document.getElementById("popular")
-            .textContent =
-
-            popular.value > 0
-
-            ? popular.name +
-              " — " +
-              popular.value +
-              "%"
-
-            : "Пока нет данных";
-
-
-        const cities =
-            data.cities || {};
-
-
-        const cityNames =
-            Object.keys(cities);
-
-
-        document.getElementById("citiesCount")
-            .textContent =
-            cityNames.length;
-
-
-        let cityHTML = "";
-
-
-        cityNames
-
-        .sort(
-            (a,b) =>
-            cities[b] - cities[a]
-        )
-
-        .forEach(city => {
-
-
-            const count =
-                cities[city];
-
-
-            const percent =
-
-                data.participants
-
-                ? Math.round(
-
-                    count /
-                    data.participants *
-                    100
-
-                )
-
-                : 0;
-
-
-            cityHTML += `
-
-            <div class="percent-row">
-
-                <div class="percent-top">
-
-                    <span>
-                    ${city}
-                    </span>
-
-                    <span>
-                    ${count}
-                    </span>
-
-                </div>
-
-
-                <div class="track">
-
-                    <div
-                    class="fill"
-                    style="width:${percent}%">
-                    </div>
-
-                </div>
-
-            </div>
-
-            `;
-
-        });
-
-
-        document.getElementById("cityStats")
-            .innerHTML =
-
-            cityHTML ||
-            "Пока нет данных.";
-
-
-    }
-
-    catch(error) {
-
-        console.log(
-            "Ошибка загрузки статистики:",
-            error
-        );
-
-
-        document.getElementById("participants")
-            .textContent =
-            "—";
-
-
-        document.getElementById("popular")
-            .textContent =
-            "Статистика пока недоступна";
-
-
-        document.getElementById("cityStats")
-            .textContent =
-            "Не удалось загрузить статистику.";
-
-    }
-
-}
-
-
-/* ==========================================
-   ЗАПУСК СТАТИСТИКИ
-========================================== */
-
 loadStatistics();
-
 </script>
-
 </body>
 </html>
